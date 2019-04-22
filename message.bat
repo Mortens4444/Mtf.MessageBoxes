@@ -1,0 +1,2 @@
+@REM start MessageBoxSender -t "Kedves Kata" -m "Felvetted a szemüvegedet a számítógéphasználathoz?" -q -timeout 10000 -n
+@start MessageBoxSender -title "Kedves Kata" -message "Felvetted a szemüvegedet a számítógéphasználathoz?" -question -timeout 10000 -no
