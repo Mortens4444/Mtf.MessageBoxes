@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>WinForms.MessageBoxes</id>
+    <version>1.0.0</version>
+    <description>Custom message boxes, like ConfirmBox, ErrorBox and InfoBox.
+You can copy the error message from the ErrorBox.
+Also there is a possibility to setup a timeout for a message.</description>
+    <authors>Mortens</authors>
+    <copyright>Copyright © 2019</copyright>
+	<tags>InfoBox ErrorBox ConfirmBox MessageBox</tags>
+	<license type="expression">MIT</license>
+    <projectUrl>http://w3.hdsnet.hu/mortens/</projectUrl>
+    <repository type="git" url="https://github.com/Mortens4444/MessageBoxSender.git" branch="master" commit="8aea8045b8c83af723f70d37a02fb78d601fcb2b" />
+  </metadata>
+  <files>
+    <file src="D:\Work\MessageBoxSender\MessageBoxSender\bin\Release\lib\**" target="lib" />	
+  </files>
+</package>
