@@ -11,7 +11,7 @@ Also there is a possibility to setup a timeout for a message.</description>
 	<tags>InfoBox ErrorBox ConfirmBox MessageBox</tags>
 	<license type="expression">MIT</license>
     <projectUrl>http://w3.hdsnet.hu/mortens/</projectUrl>
-    <repository type="git" url="https://github.com/Mortens4444/MessageBoxSender.git" branch="master" commit="8aea8045b8c83af723f70d37a02fb78d601fcb2b" />
+    <repository type="git" url="https://github.com/Mortens4444/MessageBoxSender.git" branch="master" commit="c5ed0d508a95dd7ac6a942c331893d8bcc1dc6dd" />
   </metadata>
   <files>
     <file src="D:\Work\MessageBoxSender\MessageBoxSender\bin\Release\lib\**" target="lib" />	
