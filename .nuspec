@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>WinForms.MessageBoxes</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>Custom message boxes, like ConfirmBox, ErrorBox and InfoBox.
 You can copy the error message from the ErrorBox.
 Also there is a possibility to setup a timeout for a message.</description>
