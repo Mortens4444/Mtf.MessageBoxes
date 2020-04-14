@@ -40,12 +40,12 @@ namespace MessageBoxes
 			else btn_No.Focus();
 		}
 
-		void btn_Pin_Click(object sender, EventArgs e)
+		void Btn_Pin_Click(object sender, EventArgs e)
 		{
 			PinMessage();
 		}
 
-		void btn_Unpin_Click(object sender, EventArgs e)
+		void Btn_Unpin_Click(object sender, EventArgs e)
 		{
 			UnpinMessage();
 		}
@@ -82,7 +82,7 @@ namespace MessageBoxes
 			else btn_No.Text = ok_seconds_left.ToString();
 		}
 
-		void t_DecrementSecondsLeft_Tick(object sender, EventArgs e)
+		void DecrementSecondsLeft_Tick(object sender, EventArgs e)
 		{
 			seconds_left--;
 			ShowMessageOnDefaultButton();
@@ -130,7 +130,7 @@ namespace MessageBoxes
 			return Show(cb);
 		}
 
-		void t_Close_Tick(object sender, EventArgs e)
+		void Close_Tick(object sender, EventArgs e)
 		{
 			AcceptButton.PerformClick();
 		}
