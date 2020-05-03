@@ -132,21 +132,20 @@ namespace SourceInfo
         {
             stringBuilder.AppendLine(ex.Message);
 
-            var win32Exception = ex as Win32Exception;
-            if (win32Exception != null)
-            {
-                stringBuilder.AppendLine(String.Format("Win32 NativeErrorCode: {0} - {1}", win32Exception.NativeErrorCode, (SystemErrorCodes)win32Exception.NativeErrorCode));
-            }
-            #if !__MonoCS__
-            else if (ex is ManagementException)
-            {
-                if (((ManagementException)ex).ErrorInformation != null)
-                {
-                    stringBuilder.Append("ErrorInformation description: ");
-                    stringBuilder.AppendLine(Convert.ToString(((ManagementException)ex).ErrorInformation["Description"]));
-                }
-            }
-            #endif
-        }
+			if (ex is Win32Exception win32Exception)
+			{
+				stringBuilder.AppendLine(String.Format("Win32 NativeErrorCode: {0} - {1}", win32Exception.NativeErrorCode, (SystemErrorCodes)win32Exception.NativeErrorCode));
+			}
+#if !__MonoCS__
+			else if (ex is ManagementException managementException)
+			{
+				if (managementException.ErrorInformation != null)
+				{
+					stringBuilder.Append("ErrorInformation description: ");
+					stringBuilder.AppendLine(Convert.ToString(managementException.ErrorInformation["Description"]));
+				}
+			}
+#endif
+		}
     }
 }

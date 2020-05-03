@@ -81,7 +81,7 @@
 			this.btn_Unpin.TabIndex = 2;
 			this.btn_Unpin.UseVisualStyleBackColor = true;
 			this.btn_Unpin.Visible = false;
-			this.btn_Unpin.Click += new System.EventHandler(this.btn_Unpin_Click);
+			this.btn_Unpin.Click += new System.EventHandler(this.Btn_Unpin_Click);
 			// 
 			// btn_Pin
 			// 
@@ -94,7 +94,7 @@
 			this.btn_Pin.TabIndex = 8;
 			this.btn_Pin.UseVisualStyleBackColor = true;
 			this.btn_Pin.Visible = false;
-			this.btn_Pin.Click += new System.EventHandler(this.btn_Pin_Click);
+			this.btn_Pin.Click += new System.EventHandler(this.Btn_Pin_Click);
 			// 
 			// pb_Information
 			// 
@@ -120,11 +120,11 @@
 			// 
 			this.t_DecrementSecondsLeft.Enabled = true;
 			this.t_DecrementSecondsLeft.Interval = 1000;
-			this.t_DecrementSecondsLeft.Tick += new System.EventHandler(this.t_DecrementSecondsLeft_Tick);
+			this.t_DecrementSecondsLeft.Tick += new System.EventHandler(this.DecrementSecondsLeft_Tick);
 			// 
 			// t_Close
 			// 
-			this.t_Close.Tick += new System.EventHandler(this.t_Close_Tick);
+			this.t_Close.Tick += new System.EventHandler(this.Close_Tick);
 			// 
 			// InfoBox
 			// 

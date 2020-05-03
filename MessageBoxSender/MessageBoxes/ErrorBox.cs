@@ -34,12 +34,12 @@ namespace MessageBoxes
 			tt_Hint_2.SetToolTip(btn_SendToClipboard, CopyToClipboard);
 		}
 
-		void btn_Pin_Click(object sender, EventArgs e)
+		void Btn_Pin_Click(object sender, EventArgs e)
 		{
 			PinMessage();
 		}
 
-		void btn_Unpin_Click(object sender, EventArgs e)
+		void Btn_Unpin_Click(object sender, EventArgs e)
 		{
 			UnpinMessage();
 		}
@@ -72,7 +72,7 @@ namespace MessageBoxes
 			btn_Ok.Text = ok_seconds_left.ToString();
 		}
 
-		void t_DecrementSecondsLeft_Tick(object sender, EventArgs e)
+		void DecrementSecondsLeft_Tick(object sender, EventArgs e)
 		{
 			seconds_left--;
 			ShowMessageOnOKButton();
@@ -174,7 +174,7 @@ namespace MessageBoxes
 			return Show(eb);
 		}
 
-		void t_Close_Tick(object sender, EventArgs e)
+		void Close_Tick(object sender, EventArgs e)
 		{
 			Close();
 		}
@@ -190,12 +190,12 @@ namespace MessageBoxes
 			SetWindowPos(Handle, new IntPtr(-1), 0, 0, 0, 0, SetWindowPosFlags.IgnoreResize | SetWindowPosFlags.IgnoreMove); // Set TOP_MOST
 		}
 
-		void tsmi_Copy_Click(object sender, EventArgs e)
+		void Tsmi_Copy_Click(object sender, EventArgs e)
 		{
 			ToClipboard();
 		}
 
-		void btn_SendToClipboard_Click(object sender, EventArgs e)
+		void Btn_SendToClipboard_Click(object sender, EventArgs e)
 		{
 			ToClipboard();
 		}

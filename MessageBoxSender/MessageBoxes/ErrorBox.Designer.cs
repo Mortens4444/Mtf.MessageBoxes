@@ -72,7 +72,7 @@
 			this.btn_SendToClipboard.Size = new System.Drawing.Size(21, 21);
 			this.btn_SendToClipboard.TabIndex = 11;
 			this.btn_SendToClipboard.UseVisualStyleBackColor = true;
-			this.btn_SendToClipboard.Click += new System.EventHandler(this.btn_SendToClipboard_Click);
+			this.btn_SendToClipboard.Click += new System.EventHandler(this.Btn_SendToClipboard_Click);
 			// 
 			// rtb_Message
 			// 
@@ -101,7 +101,7 @@
 			this.tsmi_Copy.Name = "tsmi_Copy";
 			this.tsmi_Copy.Size = new System.Drawing.Size(99, 22);
 			this.tsmi_Copy.Text = "Copy";
-			this.tsmi_Copy.Click += new System.EventHandler(this.tsmi_Copy_Click);
+			this.tsmi_Copy.Click += new System.EventHandler(this.Tsmi_Copy_Click);
 			// 
 			// btn_Unpin
 			// 
@@ -114,7 +114,7 @@
 			this.btn_Unpin.TabIndex = 2;
 			this.btn_Unpin.UseVisualStyleBackColor = true;
 			this.btn_Unpin.Visible = false;
-			this.btn_Unpin.Click += new System.EventHandler(this.btn_Unpin_Click);
+			this.btn_Unpin.Click += new System.EventHandler(this.Btn_Unpin_Click);
 			// 
 			// btn_Pin
 			// 
@@ -127,7 +127,7 @@
 			this.btn_Pin.TabIndex = 3;
 			this.btn_Pin.UseVisualStyleBackColor = true;
 			this.btn_Pin.Visible = false;
-			this.btn_Pin.Click += new System.EventHandler(this.btn_Pin_Click);
+			this.btn_Pin.Click += new System.EventHandler(this.Btn_Pin_Click);
 			// 
 			// pb_Error
 			// 
@@ -153,11 +153,11 @@
 			// 
 			this.t_DecrementSecondsLeft.Enabled = true;
 			this.t_DecrementSecondsLeft.Interval = 1000;
-			this.t_DecrementSecondsLeft.Tick += new System.EventHandler(this.t_DecrementSecondsLeft_Tick);
+			this.t_DecrementSecondsLeft.Tick += new System.EventHandler(this.DecrementSecondsLeft_Tick);
 			// 
 			// t_Close
 			// 
-			this.t_Close.Tick += new System.EventHandler(this.t_Close_Tick);
+			this.t_Close.Tick += new System.EventHandler(this.Close_Tick);
 			// 
 			// ErrorBox
 			// 

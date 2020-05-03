@@ -32,12 +32,12 @@ namespace MessageBoxes
 			set { base.Text = value; }
 		}
 
-		void btn_Pin_Click(object sender, EventArgs e)
+		void Btn_Pin_Click(object sender, EventArgs e)
 		{
 			PinMessage();
 		}
 
-		void btn_Unpin_Click(object sender, EventArgs e)
+		void Btn_Unpin_Click(object sender, EventArgs e)
 		{
 			UnpinMessage();
 		}
@@ -70,7 +70,7 @@ namespace MessageBoxes
 			btn_Ok.Text = ok_seconds_left.ToString();
 		}
 
-		void t_DecrementSecondsLeft_Tick(object sender, EventArgs e)
+		void DecrementSecondsLeft_Tick(object sender, EventArgs e)
 		{
 			seconds_left--;
 			ShowMessageOnOKButton();
@@ -112,7 +112,7 @@ namespace MessageBoxes
 			return Show(ib);
 		}
 
-		void t_Close_Tick(object sender, EventArgs e)
+		void Close_Tick(object sender, EventArgs e)
 		{
 			Close();
 		}
