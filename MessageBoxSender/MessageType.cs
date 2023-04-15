@@ -1,9 +1,8 @@
-﻿namespace MessageBoxSender
+﻿namespace MessageBoxSender;
+
+public enum MessageType : byte
 {
-    public enum MessageType : byte
-    {
-        Information,
-        Question,
-        Error
-    }
+    Information,
+    Question,
+    Error
 }

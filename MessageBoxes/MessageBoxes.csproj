@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Consts\Consts.csproj" />
+	  <ProjectReference Include="..\Enums\Enums.csproj" />
+	  <ProjectReference Include="..\SourceInfo\SourceInfo.csproj" />
+	</ItemGroup>
+
+</Project>

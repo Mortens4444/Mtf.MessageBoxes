@@ -1,103 +1,88 @@
 ﻿using Enums;
 using MessageBoxes;
-using System;
-using System.Threading;
-using System.Windows.Forms;
 
-namespace MessageBoxSender
+namespace MessageBoxSender;
+
+static class Program
 {
-    static class Program
+    /// <summary>
+    /// The main entry point for the application.
+    /// </summary>
+    [STAThread]
+    static void Main(string[] args)
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main(string[] args)
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+
+        string title = "Message box sender";
+        string message = "This is a default message, you can set up a custom message with the -m directive.";
+        var messageType = MessageType.Information;
+        var timeout = Timeout.Infinite;
+        var decide = Decide.Yes;
+
+        var messageAliases = new List<string> { "message", "m" };
+        var infoAliases = new List<string> { "info", "information", "i" };
+        var questionAliases = new List<string> { "question", "q" };
+        var errorAliases = new List<string> { "error", "e" };
+        var titleAliases = new List<string> { "title", "t" };
+        var yesAliases = new List<string> { "yes", "y" };
+        var noAliases = new List<string> { "no", "n" };
+
+        int i = 0;
+        while (i < args.Length)
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
-            string title = "Message box sender";
-            string message = "This is a default message, you can set up a custom message with the -m directive.";
-            var messageType = MessageType.Information;
-            var timeout = Timeout.Infinite;
-            var decide = Decide.Yes;
-
-            int i = 0;
-            while (i < args.Length)
+            var arg = args[i].ToLower().TrimStart('/', '-');
+            if (messageAliases.Contains(arg))
             {
-                var arg = args[i].ToLower();
-                switch (arg)
-                {
-                    case "-message":
-                    case "/message":
-                    case "-m":
-                    case "/m":
-                        message = TestArgsLength(i, args.Length) ? "No message provided." : args[++i];
-                        break;
-                    case "-info":
-                    case "/info":
-                    case "-information":
-                    case "/information":
-                    case "-i":
-                    case "/i":
-                        messageType = MessageType.Information;
-                        break;
-                    case "-question":
-                    case "/question":
-                    case "-q":
-                    case "/q":
-                        messageType = MessageType.Question;
-                        break;
-                    case "-error":
-                    case "/error":
-                    case "-e":
-                    case "/e":
-                        messageType = MessageType.Error;
-                        break;
-                    case "-timeout":
-                    case "/timeout":
-                        timeout = TestArgsLength(i, args.Length) ? Timeout.Infinite : Convert.ToInt32(args[++i]);
-                        break;
-                    case "-title":
-                    case "/title":
-                    case "-t":
-                    case "/t":
-                        title = TestArgsLength(i, args.Length) ? "No title has been provided" : args[++i];
-                        break;
-                    case "-yes":
-                    case "/yes":
-                    case "-y":
-                    case "/y":
-                        decide = Decide.Yes;
-                        break;
-                    case "-no":
-                    case "/no":
-                    case "-n":
-                    case "/n":
-                        decide = Decide.No;
-                        break;
-                }
-                i++;
+                message = TestArgsLength(i, args.Length) ? "No message provided." : args[++i];
             }
-
-            switch (messageType)
+            else if (infoAliases.Contains(arg))
             {
-                case MessageType.Information:
-                    InfoBox.Show(title, message, timeout);
-                    break;
-                case MessageType.Question:
-                    ConfirmBox.Show(title, message, timeout, decide);
-                    break;
-                case MessageType.Error:
-                    ErrorBox.Show(title, message, timeout);
-                    break;
+                messageType = MessageType.Information;
             }
+            else if (questionAliases.Contains(arg))
+            {
+                messageType = MessageType.Question;
+            }
+            else if (errorAliases.Contains(arg))
+            {
+                messageType = MessageType.Error;
+            }
+            else if (titleAliases.Contains(arg))
+            {
+                title = TestArgsLength(i, args.Length) ? "No title has been provided" : args[++i];
+            }
+            else if (yesAliases.Contains(arg))
+            {
+                decide = Decide.Yes;
+            }
+            else if (noAliases.Contains(arg))
+            {
+                decide = Decide.No;
+            }
+            else if (arg == "timeout")
+            {
+                timeout = TestArgsLength(i, args.Length) ? Timeout.Infinite : Convert.ToInt32(args[++i]);
+            }
+            i++;
         }
 
-        private static bool TestArgsLength(int i, int argsLength)
+        switch (messageType)
         {
-            return i + 1 > argsLength;
+            case MessageType.Information:
+                InfoBox.Show(title, message, timeout);
+                break;
+            case MessageType.Question:
+                ConfirmBox.Show(title, message, timeout, decide);
+                break;
+            case MessageType.Error:
+                ErrorBox.Show(title, message, timeout);
+                break;
         }
+    }
+
+    private static bool TestArgsLength(int i, int argsLength)
+    {
+        return i + 1 > argsLength;
     }
 }
