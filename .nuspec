@@ -12,7 +12,7 @@ This is the .NET7 version.</description>
     <copyright>Copyright © 2023</copyright>
 	<license type="expression">MIT</license>
 	<projectUrl>https://github.com/Mortens4444/MessageBoxSender</projectUrl>
-    <repository type="git" url="https://github.com/Mortens4444/MessageBoxSender.git" branch="main" commit="5b89077ac976daffb794a4551f3f8c97f8986480" />
+    <repository type="git" url="https://github.com/Mortens4444/MessageBoxSender.git" branch="main" commit="1f98aaeeac94c425257aedcb5a2d93a8d69a26fe" />
 	<tags>MessageBoxes ConfirmBox DebugErrorBox ErrorBox InfoBox Windows Forms</tags>
 	<readme>docs\ReadMe.md</readme>
     <dependencies>
