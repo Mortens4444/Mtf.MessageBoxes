@@ -6,7 +6,7 @@
     <description>Custom message boxes, like ConfirmBox, ErrorBox and InfoBox.
 You can copy the error message from the ErrorBox.
 Also there is a possibility to setup a timeout for a message.
-This is the .NET7 version.</description>
+These are the .NET Framework 4.8.1 and the .NET8 versions.</description>
     <authors>Mortens</authors>
 	<owners>Mortens</owners>
     <copyright>Copyright © 2023</copyright>
