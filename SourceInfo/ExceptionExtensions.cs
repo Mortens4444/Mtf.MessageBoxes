@@ -1,16 +1,18 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 
-namespace SourceInfo;
-
-public static class ExceptionExtensions
+namespace SourceInfo
 {
-    public static int GetErrorCode(this Exception ex)
+    public static class ExceptionExtensions
     {
-        return Marshal.GetHRForException(ex);
-    }
+        public static int GetErrorCode(this Exception ex)
+        {
+            return Marshal.GetHRForException(ex);
+        }
 
-    public static string GetDetails(this Exception ex)
-    {
-        return (new ExceptionDetails(ex)).Details;
+        public static string GetDetails(this Exception ex)
+        {
+            return (new ExceptionDetails(ex)).Details;
+        }
     }
 }

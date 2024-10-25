@@ -1,9 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net7.0-windows</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
+    <TargetFrameworks>net8.0-windows;net481</TargetFrameworks>
+		<ImplicitUsings>disable</ImplicitUsings>
 		<UseWindowsForms>true</UseWindowsForms>
 	</PropertyGroup>
 

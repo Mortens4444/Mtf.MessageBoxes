@@ -1,7 +1,8 @@
-﻿namespace Enums;
-
-public enum Decide : byte
+﻿namespace Enums
 {
-	No = 0,
-	Yes = 1
+    public enum Decide : byte
+    {
+        No = 0,
+        Yes = 1
+    }
 }

@@ -1,23 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>WinForms.MessageBoxes</id>
-    <version>1.0.3</version>
+    <id>Mtf.MessageBoxes</id>
+    <version>1.0.7</version>
     <description>Custom message boxes, like ConfirmBox, ErrorBox and InfoBox.
 You can copy the error message from the ErrorBox.
 Also there is a possibility to setup a timeout for a message.
 This is the .NET7 version.</description>
     <authors>Mortens</authors>
+	<owners>Mortens</owners>
     <copyright>Copyright © 2023</copyright>
-	<tags>InfoBox ErrorBox ConfirmBox MessageBox .NET7</tags>
 	<license type="expression">MIT</license>
-    <projectUrl>http://w3.hdsnet.hu/mortens/</projectUrl>
+	<projectUrl>https://github.com/Mortens4444/MessageBoxSender</projectUrl>
     <repository type="git" url="https://github.com/Mortens4444/MessageBoxSender.git" branch="main" commit="47e40c6392ffefb221b95bcfeef66af7b517153a" />
+	<tags>MessageBoxes ConfirmBox DebugErrorBox ErrorBox InfoBox Windows Forms</tags>
+	<readme>docs\ReadMe.md</readme>
     <dependencies>
-      <group targetFramework="net7.0-windows10.0" />
+      <group targetFramework=".NETFramework4.8.1" />
+      <group targetFramework="net8.0-windows10.0" />
     </dependencies>
   </metadata>
   <files>
-    <file src=".\MessageBoxSender\bin\Release\net7.0-windows\**" target="lib\net7.0-windows10.0" exclude=".\MessageBoxSender\bin\Release\net7.0-windows\MessageBoxSender.dll" />	
+    <file src=".\MessageBoxSender\bin\Release\net481\**" target="lib\net481" exclude=".\MessageBoxSender\bin\Release\net481\MessageBoxSender.exe" />
+    <file src=".\MessageBoxSender\bin\Release\net8.0-windows\**" target="lib\net8.0-windows10.0" exclude=".\MessageBoxSender\bin\Release\net8.0-windows\MessageBoxSender.exe" />
+	<file src=".\ReadMe.md" target="docs\" />
   </files>
 </package>
