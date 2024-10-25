@@ -11,7 +11,7 @@ To install the `Mtf.MessageBoxes` package, follow these steps:
    - Run the following command:
 
      ```bash
-     dotnet add package Mtf.MessageBoxes --version 1.0.10
+     dotnet add package Mtf.MessageBoxes
      ```
 
 This will automatically download and reference the `Mtf.MessageBoxes` library in your project.
@@ -71,23 +71,6 @@ else
 
 - `DialogResult.Yes`: The user clicked "Yes" to confirm the action.
 - `DialogResult.No`: The user clicked "No" to decline the action.
-
-#### Example
-
-Here’s a complete example of using the `ConfirmBox`:
-
-```csharp
-DialogResult result = ConfirmBox.Show("Confirmation", "Do you want to proceed?", Decide.No);
-
-if (result == DialogResult.Yes)
-{
-    // Proceed with the action
-}
-else
-{
-    // Action cancelled
-}
-```
 
 ### Important Notes
 
@@ -154,9 +137,12 @@ Here's an updated version of the documentation for the `DebugErrorBox` class, pr
 
 The `DebugErrorBox` class is designed to display error messages when an exception occurs, but only if a debugger is attached to the application. This is useful for debugging purposes, allowing developers to see error messages without disrupting normal application flow in production environments.
 
-#### Usage
+#### Methods
 
-To display an error message box when an exception occurs, use the `DebugErrorBox.Show` method within a try-catch block:
+- **Show(Exception ex)**: Displays an error message box containing the exception details. This method will only show the message box if a debugger is attached.
+  
+  **Parameters**:
+  - `ex`: The exception to display.
 
 ```csharp
 try
@@ -169,22 +155,11 @@ catch (Exception ex)
 }
 ```
 
-#### Methods
-
-- **Show(Exception ex)**: Displays an error message box containing the exception details. This method will only show the message box if a debugger is attached.
-  
-  **Parameters**:
-  - `ex`: The exception to display.
-
 - **Show(string title, string message)**: Displays an error message box with a custom title and message. This method will also only show the message box if a debugger is attached.
   
   **Parameters**:
   - `title`: The title of the error message box.
   - `message`: The content of the message to display.
-
-#### Example
-
-Here’s an example of how to use the `DebugErrorBox` in a try-catch block:
 
 ```csharp
 try
@@ -194,7 +169,7 @@ try
 }
 catch (Exception ex)
 {
-    DebugErrorBox.Show(ex); // This will show the error box if debugging
+    DebugErrorBox.Show("Error", ex.Message); // This will show the error box if debugging
 }
 ```
 
