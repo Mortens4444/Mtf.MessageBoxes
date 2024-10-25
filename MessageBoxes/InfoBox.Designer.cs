@@ -81,7 +81,7 @@
 			this.btnUnpin.TabIndex = 2;
 			this.btnUnpin.UseVisualStyleBackColor = true;
 			this.btnUnpin.Visible = false;
-			this.btnUnpin.Click += new System.EventHandler(this.btnUnpin_Click);
+			this.btnUnpin.Click += new System.EventHandler(this.BtnUnpin_Click);
 			// 
 			// btnPin
 			// 
@@ -94,7 +94,7 @@
 			this.btnPin.TabIndex = 8;
 			this.btnPin.UseVisualStyleBackColor = true;
 			this.btnPin.Visible = false;
-			this.btnPin.Click += new System.EventHandler(this.btnPin_Click);
+			this.btnPin.Click += new System.EventHandler(this.BtnPin_Click);
 			// 
 			// pb_Information
 			// 

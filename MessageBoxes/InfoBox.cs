@@ -1,5 +1,6 @@
 ﻿using Consts;
 using System;
+using System.ComponentModel;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -29,18 +30,19 @@ namespace MessageBoxes
             decrementSecondsLeftTimer.Enabled = false;
         }
 
+        [DefaultValue("")]
         public override sealed string Text
         {
             get { return base.Text; }
             set { base.Text = value; }
         }
 
-        void btnPin_Click(object sender, EventArgs e)
+        private void BtnPin_Click(object sender, EventArgs e)
         {
             PinMessage();
         }
 
-        void btnUnpin_Click(object sender, EventArgs e)
+        private void BtnUnpin_Click(object sender, EventArgs e)
         {
             UnpinMessage();
         }
@@ -55,7 +57,7 @@ namespace MessageBoxes
             btnOk.Text = OK;
         }
 
-        void UnpinMessage()
+        private void UnpinMessage()
         {
             btnPin.Visible = true;
             btnUnpin.Visible = false;
@@ -66,20 +68,20 @@ namespace MessageBoxes
             ShowMessageOnOKButton();
         }
 
-        void ShowMessageOnOKButton()
+        private void ShowMessageOnOKButton()
         {
             var ok_secondsLeft = new StringBuilder(OK);
             ok_secondsLeft.AppendFormat(" ({0})", secondsLeft);
             btnOk.Text = ok_secondsLeft.ToString();
         }
 
-        void DecrementSecondsLeft_Tick(object sender, EventArgs e)
+        private void DecrementSecondsLeft_Tick(object sender, EventArgs e)
         {
             secondsLeft--;
             ShowMessageOnOKButton();
         }
 
-        static DialogResult Show(InfoBox ib)
+        private static DialogResult Show(InfoBox ib)
         {
             if (ib.parent != null)
             {
@@ -121,12 +123,12 @@ namespace MessageBoxes
             return Show(ib);
         }
 
-        void Close_Tick(object sender, EventArgs e)
+        private void Close_Tick(object sender, EventArgs e)
         {
             Close();
         }
 
-        void InfoBox_Shown(object sender, EventArgs e)
+        private void InfoBox_Shown(object sender, EventArgs e)
         {
             rtbMessage.Select(0, 0);
         }

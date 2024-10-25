@@ -1,5 +1,6 @@
 ﻿using Enums;
 using System;
+using System.ComponentModel;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -28,6 +29,7 @@ namespace MessageBoxes
             decrementSecondsLeftTimer.Enabled = false;
         }
 
+        [DefaultValue("")]
         public override sealed string Text
         {
             get { return base.Text; }

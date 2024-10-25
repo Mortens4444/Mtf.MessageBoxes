@@ -2,27 +2,43 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Mtf.MessageBoxes</id>
-    <version>1.0.9</version>
-    <description>Custom message boxes, like ConfirmBox, ErrorBox and InfoBox.
-You can copy the error message from the ErrorBox.
-Also there is a possibility to setup a timeout for a message.
-These are the .NET Framework 4.8.1 and the .NET8 versions.</description>
+    <version>1.0.10</version>
+    <description>
+      Custom Message Boxes for enhanced user interaction.
+
+      The library includes various message boxes, such as:
+      - ConfirmBox
+      - ErrorBox
+      - InfoBox
+      - DebugErrorBox
+
+      **Features**:
+      - **Copyable Error Messages**: Easily copy error messages directly from the ErrorBox, streamlining the reporting process.
+      - **Configurable Timeout**: Set a timeout for the message boxes, allowing them to close automatically after a specified duration, improving user experience.
+
+      **Compatibility**
+	  - .NET Framework 4.8.1
+	  - .NET 8
+
+	</description>
     <authors>Mortens</authors>
 	<owners>Mortens</owners>
-    <copyright>Copyright © 2023</copyright>
+    <copyright>Copyright © 2024</copyright>
 	<license type="expression">MIT</license>
 	<projectUrl>https://github.com/Mortens4444/MessageBoxSender</projectUrl>
     <repository type="git" url="https://github.com/Mortens4444/MessageBoxSender.git" branch="main" commit="1f98aaeeac94c425257aedcb5a2d93a8d69a26fe" />
-	<tags>MessageBoxes ConfirmBox DebugErrorBox ErrorBox InfoBox Windows Forms</tags>
+	<tags>Automatic AutoClose MessageBoxes ConfirmBox DebugErrorBox ErrorBox InfoBox Windows Forms</tags>
 	<readme>docs\ReadMe.md</readme>
     <dependencies>
       <group targetFramework="net48" />
       <group targetFramework="net8.0-windows10.0" />
+      <group targetFramework="net9.0-windows10.0" />
     </dependencies>
   </metadata>
   <files>
-    <file src=".\MessageBoxSender\bin\Release\net481\**" target="lib\net48" exclude=".\MessageBoxSender\bin\Release\net481\MessageBoxSender.exe" />
-    <file src=".\MessageBoxSender\bin\Release\net8.0-windows\**" target="lib\net8.0-windows10.0" exclude=".\MessageBoxSender\bin\Release\net8.0-windows\MessageBoxSender.exe" />
+    <file src=".\MessageBoxSender\bin\Release\net481\**" target="lib\net48" exclude=".\MessageBoxSender\bin\Release\net481\MessageBoxSender.*" />
+    <file src=".\MessageBoxSender\bin\Release\net8.0-windows\**" target="lib\net8.0-windows10.0" exclude=".\MessageBoxSender\bin\Release\net8.0-windows\MessageBoxSender.*" />
+    <file src=".\MessageBoxSender\bin\Release\net9.0-windows\**" target="lib\net9.0-windows10.0" exclude=".\MessageBoxSender\bin\Release\net9.0-windows\MessageBoxSender.*" />
 	<file src=".\ReadMe.md" target="docs\" />
   </files>
 </package>
