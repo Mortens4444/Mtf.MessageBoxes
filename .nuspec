@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Mtf.MessageBoxes</id>
-    <version>1.0.10</version>
+    <version>1.0.11</version>
     <description>
       Custom Message Boxes for enhanced user interaction.
       
@@ -30,15 +30,15 @@
 	<tags>Automatic AutoClose MessageBoxes ConfirmBox DebugErrorBox ErrorBox InfoBox Windows Forms</tags>
 	<readme>docs\ReadMe.md</readme>
     <dependencies>
-      <group targetFramework="net48" />
-      <group targetFramework="net8.0-windows10.0" />
-      <group targetFramework="net9.0-windows10.0" />
+      <group targetFramework="net481" />
+      <group targetFramework="net8.0-windows7" />
+      <group targetFramework="net9.0-windows7" />
     </dependencies>
   </metadata>
   <files>
-    <file src=".\MessageBoxSender\bin\Release\net481\**" target="lib\net48" exclude=".\MessageBoxSender\bin\Release\net481\MessageBoxSender.*" />
-    <file src=".\MessageBoxSender\bin\Release\net8.0-windows\**" target="lib\net8.0-windows10.0" exclude=".\MessageBoxSender\bin\Release\net8.0-windows\MessageBoxSender.*" />
-    <file src=".\MessageBoxSender\bin\Release\net9.0-windows\**" target="lib\net9.0-windows10.0" exclude=".\MessageBoxSender\bin\Release\net9.0-windows\MessageBoxSender.*" />
+    <file src=".\MessageBoxSender\bin\Release\net481\**" target="lib\net481" exclude=".\MessageBoxSender\bin\Release\net481\MessageBoxSender.*" />
+    <file src=".\MessageBoxSender\bin\Release\net8.0-windows\**" target="lib\net8.0-windows7" exclude=".\MessageBoxSender\bin\Release\net8.0-windows\MessageBoxSender.*" />
+    <file src=".\MessageBoxSender\bin\Release\net9.0-windows\**" target="lib\net9.0-windows7" exclude=".\MessageBoxSender\bin\Release\net9.0-windows\MessageBoxSender.*" />
 	<file src=".\ReadMe.md" target="docs\" />
   </files>
 </package>
