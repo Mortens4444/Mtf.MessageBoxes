@@ -180,7 +180,7 @@ catch (Exception ex)
 
 This documentation provides clear instructions and examples for using the `DebugErrorBox`, ensuring developers understand how and when to implement it. If you need further adjustments, let me know!
 
-## Examples from MessageBoxSender (GitHub sources must be comiled. - [MessageBoxSender GitHub Repository](https://github.com/Mortens4444/MessageBoxSender))
+## Examples from MessageBoxSender (GitHub sources must be compiled. - [MessageBoxSender GitHub Repository](https://github.com/Mortens4444/MessageBoxSender))
 
 You can see examples of how to call these message boxes in the `message.bat` file of the `MessageBoxSender` application. Here are some sample calls:
 

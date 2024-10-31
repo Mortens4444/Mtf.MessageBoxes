@@ -26,7 +26,7 @@
     <copyright>Copyright © 2024</copyright>
 	<license type="expression">MIT</license>
 	<projectUrl>https://github.com/Mortens4444/MessageBoxSender</projectUrl>
-    <repository type="git" url="https://github.com/Mortens4444/MessageBoxSender.git" branch="main" commit="0c9632abd7282cfb377acc662b91480c840fa4e9" />
+    <repository type="git" url="https://github.com/Mortens4444/MessageBoxSender.git" branch="main" commit="b1a57c67f8712473e2c7057c9b94fe783cffc6ab" />
 	<tags>Automatic AutoClose MessageBoxes ConfirmBox DebugErrorBox ErrorBox InfoBox Windows Forms</tags>
 	<readme>docs\ReadMe.md</readme>
     <dependencies>
