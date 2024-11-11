@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Mtf.MessageBoxes</id>
-    <version>1.0.12</version>
+    <version>1.0.13</version>
     <description>
       Custom Message Boxes for enhanced user interaction.
       
@@ -27,7 +27,7 @@
 	<license type="expression">MIT</license>
 	<projectUrl>https://github.com/Mortens4444/MessageBoxSender</projectUrl>
     <repository type="git" url="https://github.com/Mortens4444/MessageBoxSender.git" branch="main" commit="8f0b2c1841776e8eee9777d585874eeac62fe58b" />
-	<tags>Automatic AutoClose MessageBoxes ConfirmBox DebugErrorBox ErrorBox InfoBox Windows Forms</tags>
+	<tags>Automatic AutoClose MessageBoxes ConfirmBox DebugErrorBox ErrorBox InfoBox Windows Forms Mortens</tags>
 	<readme>docs\ReadMe.md</readme>
     <dependencies>
 	  <group targetFramework="net481">

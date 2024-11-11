@@ -1,8 +1,9 @@
 ﻿using Enums;
 using MessageBoxes;
+using MessageBoxes.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading;
-using System;
 using System.Windows.Forms;
 
 namespace MessageBoxSender
@@ -26,6 +27,8 @@ namespace MessageBoxSender
 
             var messageAliases = new List<string> { "message", "m" };
             var infoAliases = new List<string> { "info", "information", "i" };
+            var inputAliases = new List<string> { "input", "in" };
+            var waitAliases = new List<string> { "wait", "w" };
             var questionAliases = new List<string> { "question", "q" };
             var errorAliases = new List<string> { "error", "e" };
             var titleAliases = new List<string> { "title", "t" };
@@ -51,6 +54,14 @@ namespace MessageBoxSender
                 else if (errorAliases.Contains(arg))
                 {
                     messageType = MessageType.Error;
+                }
+                else if (inputAliases.Contains(arg))
+                {
+                    messageType = MessageType.Input;
+                }
+                else if (waitAliases.Contains(arg))
+                {
+                    messageType = MessageType.Wait;
                 }
                 else if (titleAliases.Contains(arg))
                 {
@@ -81,6 +92,32 @@ namespace MessageBoxSender
                     break;
                 case MessageType.Error:
                     ErrorBox.Show(title, message, timeout);
+                    break;
+                case MessageType.Input:
+
+                    var answer = InputBox.Show(title, message, timeout);
+                    if (answer != null)
+                    {
+                        InfoBox.Show("Correct answer!", answer);
+                    }
+
+                    break;
+                case MessageType.Wait:
+
+                    const int from = 0, to = 100;
+                    WaitForm.ExecuteAction(progress =>
+                    {
+                        for (int percent = from; percent < to; percent++)
+                        {
+                            Thread.Sleep(100);
+                            progress.Report(new ProgressReport
+                            {
+                                Percentage = percent,
+                                StatusMessage = $"Progress: {percent}%"
+                            });
+                        }
+                    }, from, to, "Please wait…");
+
                     break;
             }
         }

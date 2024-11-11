@@ -4,6 +4,8 @@
     {
         Information,
         Question,
-        Error
+        Error,
+        Input,
+        Wait
     }
 }

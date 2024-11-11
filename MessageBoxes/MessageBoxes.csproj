@@ -12,4 +12,10 @@
 	  <ProjectReference Include="..\SourceInfo\SourceInfo.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="InputBox.cs">
+	    <SubType>Form</SubType>
+	  </Compile>
+	</ItemGroup>
+
 </Project>

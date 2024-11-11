@@ -36,12 +36,12 @@
 			this.btnPin = new System.Windows.Forms.Button();
 			this.btn_No = new System.Windows.Forms.Button();
 			this.btn_Yes = new System.Windows.Forms.Button();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.pictureBox = new System.Windows.Forms.PictureBox();
 			this.tooltip = new System.Windows.Forms.ToolTip(this.components);
 			this.closeTimer = new System.Windows.Forms.Timer(this.components);
 			this.decrementSecondsLeftTimer = new System.Windows.Forms.Timer(this.components);
 			this.p_Main.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// p_Main
@@ -120,12 +120,12 @@
 			// 
 			// pictureBox1
 			// 
-			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(10, 10);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(32, 32);
-			this.pictureBox1.TabIndex = 7;
-			this.pictureBox1.TabStop = false;
+			this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox.Location = new System.Drawing.Point(10, 10);
+			this.pictureBox.Name = "pictureBox1";
+			this.pictureBox.Size = new System.Drawing.Size(32, 32);
+			this.pictureBox.TabIndex = 7;
+			this.pictureBox.TabStop = false;
 			// 
 			// closeTimer
 			// 
@@ -144,7 +144,7 @@
 			this.ClientSize = new System.Drawing.Size(403, 107);
 			this.Controls.Add(this.btn_No);
 			this.Controls.Add(this.btn_Yes);
-			this.Controls.Add(this.pictureBox1);
+			this.Controls.Add(this.pictureBox);
 			this.Controls.Add(this.p_Main);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
 			this.MinimumSize = new System.Drawing.Size(411, 131);
@@ -154,7 +154,7 @@
 			this.Text = "ConfirmBox";
 			this.Shown += new System.EventHandler(this.ConfirmBox_Shown);
 			this.p_Main.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -166,7 +166,7 @@
 		private System.Windows.Forms.Button btnUnpin;
 		private System.Windows.Forms.Button btn_No;
 		private System.Windows.Forms.Button btn_Yes;
-		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.PictureBox pictureBox;
 		private System.Windows.Forms.ToolTip tooltip;
 		private System.Windows.Forms.Timer closeTimer;
 		private System.Windows.Forms.Timer decrementSecondsLeftTimer;
