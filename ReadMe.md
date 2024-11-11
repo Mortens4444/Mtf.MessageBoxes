@@ -173,6 +173,34 @@ catch (Exception ex)
 }
 ```
 
+### InputBox
+
+```csharp
+var answer = InputBox.Show(title, message, timeout);
+if (answer != null)
+{
+    InfoBox.Show("Correct answer!", answer);
+}
+```
+
+### WaitForm
+
+```csharp
+const int from = 0, to = 100;
+WaitForm.ExecuteAction(progress =>
+{
+	for (int percent = from; percent < to; percent++)
+	{
+		Thread.Sleep(100);
+		progress.Report(new ProgressReport
+		{
+			Percentage = percent,
+			StatusMessage = $"Progress: {percent}%"
+		});
+	}
+}, from, to, "Please wait…");
+```
+
 ### Important Notes
 
 - The `DebugErrorBox` is intended for use during development and debugging. It will not interfere with the user experience in production since it checks for an attached debugger before displaying any messages.
