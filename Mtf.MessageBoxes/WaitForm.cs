@@ -1,9 +1,9 @@
-﻿using MessageBoxes.Models;
+﻿using Mtf.MessageBoxes.Models;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MessageBoxes
+namespace Mtf.MessageBoxes
 {
     public partial class WaitForm : Form
     {

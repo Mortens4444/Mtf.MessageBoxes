@@ -1,4 +1,4 @@
-﻿namespace Enums
+﻿namespace Mtf.MessageBoxes.Enums
 {
     public enum SystemParameterInfoActionType : uint
     {

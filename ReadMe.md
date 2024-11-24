@@ -17,10 +17,10 @@ To install the `Mtf.MessageBoxes` package, follow these steps:
 This will automatically download and reference the `Mtf.MessageBoxes` library in your project.
 
 2. **Include the Namespace**:
-   At the top of your code file, include the `MessageBoxes` namespace:
+   At the top of your code file, include the `Mtf.MessageBoxes` namespace:
 
    ```csharp
-   using MessageBoxes;
+   using Mtf.MessageBoxes;
    ```
 
 ## Using Message Boxes

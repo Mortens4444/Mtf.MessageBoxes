@@ -1,11 +1,11 @@
-﻿using Consts;
+﻿using Mtf.MessageBoxes;
 using System;
 using System.ComponentModel;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace MessageBoxes
+namespace Mtf.MessageBoxes
 {
     public partial class InfoBox : BaseBox
     {

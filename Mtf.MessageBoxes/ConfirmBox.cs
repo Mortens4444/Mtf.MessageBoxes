@@ -1,26 +1,28 @@
-﻿using System;
+﻿using Mtf.MessageBoxes.Enums;
+using System;
 using System.ComponentModel;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace MessageBoxes
+namespace Mtf.MessageBoxes
 {
-    public partial class InputBox : BaseBox
+    public partial class ConfirmBox : BaseBox
     {
+        private readonly bool defaultChoice;
         private readonly bool showAutocloseButtons;
 
-        protected InputBox() { }
+        protected ConfirmBox() { }
 
-        public InputBox(string title, string question, int intervalInMs = Timeout.Infinite, string defaultAnswer = "")
+        protected ConfirmBox(string title, string message, int intervalInMs = 10000, Decide defaultChoice = Decide.No)
         {
             InitializeComponent();
-            btnOk.Text = OK;
-            btnCancel.Text = Cancel;
+            btn_Yes.Text = Yes;
+            btn_No.Text = No;
             Text = String.Concat(Application.ProductName, ": ", title);
-            rtbQuestion.Text = question;
-            rtbAnswer.Text = defaultAnswer;
+            rtbMessage.Text = message;
             closeTimer.Enabled = false;
+            this.defaultChoice = Decide.Yes == defaultChoice;
 
             showAutocloseButtons = intervalInMs != Timeout.Infinite;
             if (showAutocloseButtons)
@@ -37,12 +39,11 @@ namespace MessageBoxes
             get { return base.Text; }
             set { base.Text = value; }
         }
-        
-        [DefaultValue("")]
-        public string Answer
+
+        private void FocusAcceptButton()
         {
-            get { return rtbAnswer.Text; }
-            set { rtbAnswer.Text = value; }
+            var button = defaultChoice ? btn_Yes : btn_No;
+            button.Focus();
         }
 
         private void BtnPin_Click(object sender, EventArgs e)
@@ -62,8 +63,9 @@ namespace MessageBoxes
             btnPin.Visible = false;
             btnUnpin.Visible = showAutocloseButtons;
             tooltip.SetToolTip(btnUnpin, EnableAutomaticMessageClosing);
-            btnOk.Text = Yes;
-            btnCancel.Text = No;
+            btn_Yes.Text = Yes;
+            btn_No.Text = No;
+            FocusAcceptButton();
         }
 
         private void UnpinMessage()
@@ -80,8 +82,10 @@ namespace MessageBoxes
         private void ShowMessageOnDefaultButton()
         {
             var okSecondsLeft = new StringBuilder();
-            okSecondsLeft.AppendFormat("{0} ({1})", OK, secondsLeft);
-            btnCancel.Text = okSecondsLeft.ToString();
+            okSecondsLeft.Append(defaultChoice ? Yes : No);
+            okSecondsLeft.AppendFormat(" ({0})", secondsLeft);
+            var button = defaultChoice ? btn_Yes : btn_No;
+            button.Text = okSecondsLeft.ToString();
         }
 
         private void DecrementSecondsLeft_Tick(object sender, EventArgs e)
@@ -90,7 +94,7 @@ namespace MessageBoxes
             ShowMessageOnDefaultButton();
         }
 
-        private static DialogResult Show(InputBox cb)
+        private static DialogResult Show(ConfirmBox cb)
         {
             if (cb.parent != null)
             {
@@ -105,19 +109,24 @@ namespace MessageBoxes
             return cb.ShowDialog();
         }
 
-        public static string Show(string title, string question, int intervalInMs = Timeout.Infinite, string defaultAnswer = "")
+        public static DialogResult Show(string title, string message, int intervalInMs = 10000, Decide defaultChoice = Decide.No)
         {
-            return Show(null, title, question, intervalInMs, defaultAnswer);
+            return Show(null, title, message, intervalInMs, defaultChoice);
         }
 
-        public static string Show(string title, string question, string defaultAnswer = "")
+        public static DialogResult Show(string title, string message, Decide defaultChoice = Decide.No)
         {
-            return Show(null, title, question, Timeout.Infinite, defaultAnswer);
+            return Show(null, title, message, Timeout.Infinite, defaultChoice);
         }
 
-        public static string Show(Form parent, string title, string question, int intervalInMs = Timeout.Infinite, string defaultAnswer = "")
+        public static DialogResult Show(Form parent, string title, string message, Decide defaultChoice = Decide.No)
         {
-            var cb = new InputBox(title, question, intervalInMs, defaultAnswer)
+            return Show(parent, title, message, Timeout.Infinite, defaultChoice);
+        }
+
+        public static DialogResult Show(Form parent, string title, string message, int intervalInMs = 10000, Decide defaultChoice = Decide.No)
+        {
+            var cb = new ConfirmBox(title, message, intervalInMs, defaultChoice)
             {
                 parent = parent
             };
@@ -130,12 +139,7 @@ namespace MessageBoxes
                 cb.UnpinMessage();
             }
 
-            if (Show(cb) == DialogResult.OK)
-            {
-                return cb.Answer;
-            };
-
-            return null;
+            return Show(cb);
         }
 
         private void Close_Tick(object sender, EventArgs e)
@@ -143,11 +147,12 @@ namespace MessageBoxes
             AcceptButton?.PerformClick();
         }
 
-        private void InputBox_Shown(object sender, EventArgs e)
+        private void ConfirmBox_Shown(object sender, EventArgs e)
         {
-            rtbQuestion.Select(0, 0);
-            AcceptButton = btnOk;
-            CancelButton = btnCancel;
+            rtbMessage.Select(0, 0);
+            AcceptButton = defaultChoice ? btn_Yes : btn_No;
+            CancelButton = btn_No;
+            FocusAcceptButton();
         }
     }
 }

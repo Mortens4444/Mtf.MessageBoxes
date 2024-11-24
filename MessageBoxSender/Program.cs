@@ -1,6 +1,6 @@
-﻿using Enums;
-using MessageBoxes;
-using MessageBoxes.Models;
+﻿using Mtf.MessageBoxes.Enums;
+using Mtf.MessageBoxes;
+using Mtf.MessageBoxes.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading;

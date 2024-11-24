@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace SourceInfo
+namespace Mtf.MessageBoxes.Exceptions
 {
     public static class ExceptionExtensions
     {

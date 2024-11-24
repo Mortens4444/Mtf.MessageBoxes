@@ -1,7 +1,6 @@
-﻿using Consts;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
-namespace MessageBoxes
+namespace Mtf.MessageBoxes
 {
     public partial class BaseBox : Form
     {

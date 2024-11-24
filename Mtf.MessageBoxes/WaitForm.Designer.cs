@@ -1,4 +1,4 @@
-﻿namespace MessageBoxes
+﻿namespace Mtf.MessageBoxes
 {
     partial class WaitForm
     {

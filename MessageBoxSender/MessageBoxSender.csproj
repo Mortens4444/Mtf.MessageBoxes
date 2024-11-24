@@ -5,10 +5,11 @@
     <TargetFrameworks>net9.0-windows;net8.0-windows;net481</TargetFrameworks>
 		<ImplicitUsings>disable</ImplicitUsings>
 		<UseWindowsForms>true</UseWindowsForms>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\MessageBoxes\MessageBoxes.csproj" />
+	  <ProjectReference Include="..\Mtf.MessageBoxes\Mtf.MessageBoxes.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

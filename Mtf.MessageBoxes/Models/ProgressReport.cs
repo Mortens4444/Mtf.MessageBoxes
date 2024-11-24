@@ -1,4 +1,4 @@
-﻿namespace MessageBoxes.Models
+﻿namespace Mtf.MessageBoxes.Models
 {
     public class ProgressReport
     {

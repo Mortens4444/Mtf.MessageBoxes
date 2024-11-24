@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Enums
+namespace Mtf.MessageBoxes.Enums
 {
     [Flags]
     public enum SetWindowPosFlags : uint

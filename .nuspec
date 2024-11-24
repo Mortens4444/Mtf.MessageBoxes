@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Mtf.MessageBoxes</id>
-    <version>1.0.14</version>
+    <version>2.0.25</version>
     <description>
       Custom Message Boxes for enhanced user interaction.
       
@@ -11,6 +11,8 @@
       - ErrorBox
       - InfoBox
       - DebugErrorBox
+	  - InputBox
+	  - WaitForm
       
       Features:
       - Copyable Error Messages: Easily copy error messages directly from the ErrorBox, streamlining the reporting process.
@@ -26,7 +28,7 @@
     <copyright>Copyright © 2024</copyright>
 	<license type="expression">MIT</license>
 	<projectUrl>https://github.com/Mortens4444/MessageBoxSender</projectUrl>
-    <repository type="git" url="https://github.com/Mortens4444/MessageBoxSender.git" branch="main" commit="bdac32604e4e6027574aeb1ffe12bf5567261827" />
+    <repository type="git" url="https://github.com/Mortens4444/MessageBoxSender.git" branch="main" commit="cc1fc8f9820e991022b69a33e7e10b7de41fae6c" />
 	<tags>Automatic AutoClose MessageBoxes ConfirmBox DebugErrorBox ErrorBox InfoBox Windows Forms Mortens InputBox WaitForm</tags>
 	<readme>docs\ReadMe.md</readme>
     <dependencies>
@@ -42,9 +44,9 @@
     </dependencies>
   </metadata>
   <files>
-    <file src=".\MessageBoxSender\bin\Release\net481\**" target="lib\net481" exclude=".\MessageBoxSender\bin\Release\net481\MessageBoxSender.*" />
-    <file src=".\MessageBoxSender\bin\Release\net8.0-windows\**" target="lib\net8.0-windows7" exclude=".\MessageBoxSender\bin\Release\net8.0-windows\MessageBoxSender.*" />
-    <file src=".\MessageBoxSender\bin\Release\net9.0-windows\**" target="lib\net9.0-windows7" exclude=".\MessageBoxSender\bin\Release\net9.0-windows\MessageBoxSender.*" />
+	<file src=".\Mtf.MessageBoxes\bin\Release\net481\*.*" target="lib\net481\" />
+	<file src=".\Mtf.MessageBoxes\bin\Release\net8.0-windows\*.*" target="lib\net8.0-windows7\" />
+	<file src=".\Mtf.MessageBoxes\bin\Release\net9.0-windows\*.*" target="lib\net9.0-windows7\" />
 	<file src=".\ReadMe.md" target="docs\" />
   </files>
 </package>

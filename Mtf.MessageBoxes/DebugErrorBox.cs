@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace MessageBoxes
+namespace Mtf.MessageBoxes
 {
     public static class DebugErrorBox
     {

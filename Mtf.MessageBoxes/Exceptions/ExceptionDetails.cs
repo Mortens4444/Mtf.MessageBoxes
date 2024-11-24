@@ -1,4 +1,4 @@
-﻿using Enums;
+﻿using Mtf.MessageBoxes.Enums;
 using System.Collections.Generic;
 using System;
 using System.ComponentModel;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Management;
 using System.Text;
 
-namespace SourceInfo
+namespace Mtf.MessageBoxes.Exceptions
 {
     public class ExceptionDetails
     {

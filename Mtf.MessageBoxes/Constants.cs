@@ -1,4 +1,4 @@
-﻿namespace Consts
+﻿namespace Mtf.MessageBoxes
 {
     public static class Constants
     {
