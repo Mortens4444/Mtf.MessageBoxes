@@ -191,15 +191,6 @@
 		private System.Windows.Forms.ToolTip tooltip;
 		private System.Windows.Forms.Timer closeTimer;
 		private System.Windows.Forms.Timer decrementSecondsLeftTimer;
-
-/* Unmerged change from project 'MessageBoxes (net8.0-windows)'
-Before:
-		private System.Windows.Forms.RichTextBox rtbMessage;
-	}
-After:
-		private System.Windows.Forms.RichTextBox rtbQuestion;
-	}
-*/
 		private System.Windows.Forms.RichTextBox rtbQuestion;
         private System.Windows.Forms.RichTextBox rtbAnswer;
     }

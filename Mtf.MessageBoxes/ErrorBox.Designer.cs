@@ -97,7 +97,7 @@
 			// 
 			// tsmi_Copy
 			// 
-			this.tsmi_Copy.Image = global::MessageBoxes.Resource.copy;
+			this.tsmi_Copy.Image = global::Mtf.MessageBoxes.Resource.copy;
 			this.tsmi_Copy.Name = "tsmi_Copy";
 			this.tsmi_Copy.Size = new System.Drawing.Size(99, 22);
 			this.tsmi_Copy.Text = "Copy";
