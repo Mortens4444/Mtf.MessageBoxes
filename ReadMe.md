@@ -201,6 +201,27 @@ WaitForm.ExecuteAction(progress =>
 }, from, to, "Please wait…");
 ```
 
+### ExceptionHandler
+The `ExceptionHandler` class subscribes to `Application.ThreadException` and `AppDomain.CurrentDomain.UnhandledException` and shows an ErrorBox.
+
+```csharp
+static class Program
+{
+    /// <summary>
+    /// The main entry point for the application.
+    /// </summary>
+    [STAThread]
+    static void Main()
+    {
+        ExceptionHandler.CatchUnhandledExceptions();
+
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+        Application.Run(new MainForm());
+    }
+}
+```
+
 ### Important Notes
 
 - The `DebugErrorBox` is intended for use during development and debugging. It will not interfere with the user experience in production since it checks for an attached debugger before displaying any messages.
