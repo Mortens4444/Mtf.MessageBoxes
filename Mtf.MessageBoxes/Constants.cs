@@ -18,5 +18,7 @@
         public const string ENABLE_AUTOMATIC_MESSAGE_CLOSING = "Enable automatic message closing";
         public const string DISABLE_AUTOMATIC_MESSAGE_CLOSING = "Disable automatic message closing";
         public const string COPY_TO_CLIPBOARD = "Copy to clipboard";
+        public const string COPY = "Copy";
+        public const string PLEASE_WAIT = "Please wait...";
     }
 }

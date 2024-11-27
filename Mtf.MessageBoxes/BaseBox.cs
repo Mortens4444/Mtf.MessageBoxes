@@ -13,6 +13,8 @@ namespace Mtf.MessageBoxes
         public static string EnableAutomaticMessageClosing = Constants.ENABLE_AUTOMATIC_MESSAGE_CLOSING;
         public static string DisableAutomaticMessageClosing = Constants.DISABLE_AUTOMATIC_MESSAGE_CLOSING;
         public static string CopyToClipboard = Constants.COPY_TO_CLIPBOARD;
+        public static string Copy = Constants.COPY;
+        public static string PleaseWait  = Constants.PLEASE_WAIT;
 
         protected BaseBox()
         {

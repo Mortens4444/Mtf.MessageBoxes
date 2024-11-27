@@ -23,6 +23,7 @@ namespace Mtf.MessageBoxes
             Text = String.Concat(Application.ProductName, ": ", title);
             rtbMessage.Text = message;
             closeTimer.Enabled = false;
+            tsmiCopy.Text = Copy;
             if (intervalInMs != Timeout.Infinite)
             {
                 closeTimer.Interval = intervalInMs;

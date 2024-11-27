@@ -18,10 +18,7 @@ namespace Mtf.MessageBoxes
                 progressBar.Maximum = to.Value;
             }
 
-            if (text != null)
-            {
-                lblPleaseWait.Text = text;
-            }
+            lblPleaseWait.Text = text ?? BaseBox.PleaseWait;
         }
 
         public static void ExecuteAction(Action action, string text = null)

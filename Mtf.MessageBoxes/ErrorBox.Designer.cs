@@ -20,170 +20,225 @@
 			base.Dispose(disposing);
 		}
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
-			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ErrorBox));
-			this.p_Main = new System.Windows.Forms.Panel();
-			this.btn_SendToClipboard = new System.Windows.Forms.Button();
-			this.rtbMessage = new System.Windows.Forms.RichTextBox();
-			this.cms_Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.tsmi_Copy = new System.Windows.Forms.ToolStripMenuItem();
-			this.btnUnpin = new System.Windows.Forms.Button();
-			this.btnPin = new System.Windows.Forms.Button();
-			this.pb_Error = new System.Windows.Forms.PictureBox();
-			this.btnOk = new System.Windows.Forms.Button();
-			this.decrementSecondsLeftTimer = new System.Windows.Forms.Timer(this.components);
-			this.closeTimer = new System.Windows.Forms.Timer(this.components);
-			this.tooltip = new System.Windows.Forms.ToolTip(this.components);
-			this.tooltipTwo = new System.Windows.Forms.ToolTip(this.components);
-			this.p_Main.SuspendLayout();
-			this.cms_Menu.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pb_Error)).BeginInit();
-			this.SuspendLayout();
-			// 
-			// p_Main
-			// 
-			this.p_Main.Controls.Add(this.btn_SendToClipboard);
-			this.p_Main.Controls.Add(this.rtbMessage);
-			this.p_Main.Controls.Add(this.btnUnpin);
-			this.p_Main.Controls.Add(this.btnPin);
-			this.p_Main.Controls.Add(this.pb_Error);
-			this.p_Main.Controls.Add(this.btnOk);
-			this.p_Main.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.p_Main.Location = new System.Drawing.Point(0, 0);
-			this.p_Main.Name = "p_Main";
-			this.p_Main.Size = new System.Drawing.Size(403, 107);
-			this.p_Main.TabIndex = 0;
-			// 
-			// btn_SendToClipboard
-			// 
-			this.btn_SendToClipboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btn_SendToClipboard.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.btn_SendToClipboard.Image = ((System.Drawing.Image)(resources.GetObject("btn_SendToClipboard.Image")));
-			this.btn_SendToClipboard.Location = new System.Drawing.Point(344, 78);
-			this.btn_SendToClipboard.Name = "btn_SendToClipboard";
-			this.btn_SendToClipboard.Size = new System.Drawing.Size(21, 21);
-			this.btn_SendToClipboard.TabIndex = 11;
-			this.btn_SendToClipboard.UseVisualStyleBackColor = true;
-			this.btn_SendToClipboard.Click += new System.EventHandler(this.Btn_SendToClipboard_Click);
-			// 
-			// rtbMessage
-			// 
-			this.rtbMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-						| System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
-			this.rtbMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.rtbMessage.ContextMenuStrip = this.cms_Menu;
-			this.rtbMessage.Location = new System.Drawing.Point(48, 10);
-			this.rtbMessage.Name = "rtbMessage";
-			this.rtbMessage.ReadOnly = true;
-			this.rtbMessage.Size = new System.Drawing.Size(344, 62);
-			this.rtbMessage.TabIndex = 9;
-			this.rtbMessage.Text = "";
-			// 
-			// cms_Menu
-			// 
-			this.cms_Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmi_Copy});
-			this.cms_Menu.Name = "contextMenuStrip1";
-			this.cms_Menu.Size = new System.Drawing.Size(100, 26);
-			// 
-			// tsmi_Copy
-			// 
-			this.tsmi_Copy.Image = global::Mtf.MessageBoxes.Resource.copy;
-			this.tsmi_Copy.Name = "tsmi_Copy";
-			this.tsmi_Copy.Size = new System.Drawing.Size(99, 22);
-			this.tsmi_Copy.Text = "Copy";
-			this.tsmi_Copy.Click += new System.EventHandler(this.Tsmi_Copy_Click);
-			// 
-			// btnUnpin
-			// 
-			this.btnUnpin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnUnpin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.btnUnpin.Image = ((System.Drawing.Image)(resources.GetObject("btnUnpin.Image")));
-			this.btnUnpin.Location = new System.Drawing.Point(371, 78);
-			this.btnUnpin.Name = "btnUnpin";
-			this.btnUnpin.Size = new System.Drawing.Size(21, 21);
-			this.btnUnpin.TabIndex = 2;
-			this.btnUnpin.UseVisualStyleBackColor = true;
-			this.btnUnpin.Visible = false;
-			this.btnUnpin.Click += new System.EventHandler(this.BtnUnpin_Click);
-			// 
-			// btnPin
-			// 
-			this.btnPin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnPin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.btnPin.Image = ((System.Drawing.Image)(resources.GetObject("btnPin.Image")));
-			this.btnPin.Location = new System.Drawing.Point(371, 78);
-			this.btnPin.Name = "btnPin";
-			this.btnPin.Size = new System.Drawing.Size(21, 21);
-			this.btnPin.TabIndex = 3;
-			this.btnPin.UseVisualStyleBackColor = true;
-			this.btnPin.Visible = false;
-			this.btnPin.Click += new System.EventHandler(this.BtnPin_Click);
-			// 
-			// pb_Error
-			// 
-			this.pb_Error.Image = ((System.Drawing.Image)(resources.GetObject("pb_Error.Image")));
-			this.pb_Error.Location = new System.Drawing.Point(10, 10);
-			this.pb_Error.Name = "pb_Error";
-			this.pb_Error.Size = new System.Drawing.Size(32, 32);
-			this.pb_Error.TabIndex = 8;
-			this.pb_Error.TabStop = false;
-			// 
-			// btnOk
-			// 
-			this.btnOk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.btnOk.Location = new System.Drawing.Point(165, 76);
-			this.btnOk.Name = "btnOk";
-			this.btnOk.Size = new System.Drawing.Size(75, 23);
-			this.btnOk.TabIndex = 1;
-			this.btnOk.Text = "OK";
-			this.btnOk.UseVisualStyleBackColor = true;
-			// 
-			// decrementSecondsLeftTimer
-			// 
-			this.decrementSecondsLeftTimer.Enabled = true;
-			this.decrementSecondsLeftTimer.Interval = 1000;
-			this.decrementSecondsLeftTimer.Tick += new System.EventHandler(this.DecrementSecondsLeft_Tick);
-			// 
-			// closeTimer
-			// 
-			this.closeTimer.Tick += new System.EventHandler(this.Close_Tick);
-			// 
-			// ErrorBox
-			// 
-			this.AcceptButton = this.btnOk;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(403, 107);
-			this.Controls.Add(this.p_Main);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-			this.MinimumSize = new System.Drawing.Size(411, 131);
-			this.Name = "ErrorBox";
-			this.ShowIcon = false;
-			this.ShowInTaskbar = false;
-			this.Text = "Title";
-			this.Load += new System.EventHandler(this.ErrorBox_Load);
-			this.Shown += new System.EventHandler(this.ErrorBox_Shown);
-			this.p_Main.ResumeLayout(false);
-			this.cms_Menu.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pb_Error)).EndInit();
-			this.ResumeLayout(false);
 
-		}
+        /* Unmerged change from project 'Mtf.MessageBoxes (net8.0-windows)'
+        Before:
+                    this.cms_Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
+                    this.tsmi_Copy = new System.Windows.Forms.ToolStripMenuItem();
+        After:
+                    this.cmsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+                    this.tsmi_Copy = new System.Windows.Forms.ToolStripMenuItem();
+        */
 
-		#endregion
+        /* Unmerged change from project 'Mtf.MessageBoxes (net8.0-windows)'
+        Before:
+                    this.cms_Menu.SuspendLayout();
+                    ((System.ComponentModel.ISupportInitialize)(this.pb_Error)).BeginInit();
+        After:
+                    this.cmsMenu.SuspendLayout();
+                    ((System.ComponentModel.ISupportInitialize)(this.pb_Error)).BeginInit();
+        */
 
-		private System.Windows.Forms.Panel p_Main;
+        /* Unmerged change from project 'Mtf.MessageBoxes (net8.0-windows)'
+        Before:
+                    this.rtbMessage.ContextMenuStrip = this.cms_Menu;
+                    this.rtbMessage.Location = new System.Drawing.Point(48, 10);
+        After:
+                    this.rtbMessage.ContextMenuStrip = this.cmsMenu;
+                    this.rtbMessage.Location = new System.Drawing.Point(48, 10);
+        */
+
+        /* Unmerged change from project 'Mtf.MessageBoxes (net8.0-windows)'
+        Before:
+                    this.cms_Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                    this.tsmi_Copy});
+                    this.cms_Menu.Name = "contextMenuStrip1";
+                    this.cms_Menu.Size = new System.Drawing.Size(100, 26);
+                    // 
+        After:
+                    this.cmsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                    this.tsmi_Copy});
+                    this.cmsMenu.Name = "contextMenuStrip1";
+                    this.cmsMenu.Size = new System.Drawing.Size(100, 26);
+                    // 
+        */
+
+        /* Unmerged change from project 'Mtf.MessageBoxes (net8.0-windows)'
+        Before:
+                    this.cms_Menu.ResumeLayout(false);
+                    ((System.ComponentModel.ISupportInitialize)(this.pb_Error)).EndInit();
+        After:
+                    this.cmsMenu.ResumeLayout(false);
+                    ((System.ComponentModel.ISupportInitialize)(this.pb_Error)).EndInit();
+        */
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ErrorBox));
+            p_Main = new System.Windows.Forms.Panel();
+            btn_SendToClipboard = new System.Windows.Forms.Button();
+            rtbMessage = new System.Windows.Forms.RichTextBox();
+            cmsMenu = new System.Windows.Forms.ContextMenuStrip(components);
+            tsmiCopy = new System.Windows.Forms.ToolStripMenuItem();
+            btnUnpin = new System.Windows.Forms.Button();
+            btnPin = new System.Windows.Forms.Button();
+            pb_Error = new System.Windows.Forms.PictureBox();
+            btnOk = new System.Windows.Forms.Button();
+            decrementSecondsLeftTimer = new System.Windows.Forms.Timer(components);
+            closeTimer = new System.Windows.Forms.Timer(components);
+            tooltip = new System.Windows.Forms.ToolTip(components);
+            tooltipTwo = new System.Windows.Forms.ToolTip(components);
+            p_Main.SuspendLayout();
+            cmsMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_Error).BeginInit();
+            SuspendLayout();
+            // 
+            // p_Main
+            // 
+            p_Main.Controls.Add(btn_SendToClipboard);
+            p_Main.Controls.Add(rtbMessage);
+            p_Main.Controls.Add(btnUnpin);
+            p_Main.Controls.Add(btnPin);
+            p_Main.Controls.Add(pb_Error);
+            p_Main.Controls.Add(btnOk);
+            p_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            p_Main.Location = new System.Drawing.Point(0, 0);
+            p_Main.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            p_Main.Name = "p_Main";
+            p_Main.Size = new System.Drawing.Size(470, 123);
+            p_Main.TabIndex = 0;
+            // 
+            // btn_SendToClipboard
+            // 
+            btn_SendToClipboard.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btn_SendToClipboard.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            btn_SendToClipboard.Image = (System.Drawing.Image)resources.GetObject("btn_SendToClipboard.Image");
+            btn_SendToClipboard.Location = new System.Drawing.Point(401, 90);
+            btn_SendToClipboard.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btn_SendToClipboard.Name = "btn_SendToClipboard";
+            btn_SendToClipboard.Size = new System.Drawing.Size(24, 24);
+            btn_SendToClipboard.TabIndex = 11;
+            btn_SendToClipboard.UseVisualStyleBackColor = true;
+            btn_SendToClipboard.Click += Btn_SendToClipboard_Click;
+            // 
+            // rtbMessage
+            // 
+            rtbMessage.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            rtbMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            rtbMessage.ContextMenuStrip = cmsMenu;
+            rtbMessage.Location = new System.Drawing.Point(56, 12);
+            rtbMessage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rtbMessage.Name = "rtbMessage";
+            rtbMessage.ReadOnly = true;
+            rtbMessage.Size = new System.Drawing.Size(401, 72);
+            rtbMessage.TabIndex = 9;
+            rtbMessage.Text = "";
+            // 
+            // cmsMenu
+            // 
+            cmsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmiCopy });
+            cmsMenu.Name = "contextMenuStrip1";
+            cmsMenu.Size = new System.Drawing.Size(181, 48);
+            // 
+            // tsmiCopy
+            // 
+            tsmiCopy.Image = Resource.copy;
+            tsmiCopy.Name = "tsmiCopy";
+            tsmiCopy.Size = new System.Drawing.Size(180, 22);
+            tsmiCopy.Text = "Copy";
+            tsmiCopy.Click += Tsmi_Copy_Click;
+            // 
+            // btnUnpin
+            // 
+            btnUnpin.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnUnpin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            btnUnpin.Image = (System.Drawing.Image)resources.GetObject("btnUnpin.Image");
+            btnUnpin.Location = new System.Drawing.Point(433, 90);
+            btnUnpin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnUnpin.Name = "btnUnpin";
+            btnUnpin.Size = new System.Drawing.Size(24, 24);
+            btnUnpin.TabIndex = 2;
+            btnUnpin.UseVisualStyleBackColor = true;
+            btnUnpin.Visible = false;
+            btnUnpin.Click += BtnUnpin_Click;
+            // 
+            // btnPin
+            // 
+            btnPin.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnPin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            btnPin.Image = (System.Drawing.Image)resources.GetObject("btnPin.Image");
+            btnPin.Location = new System.Drawing.Point(433, 90);
+            btnPin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnPin.Name = "btnPin";
+            btnPin.Size = new System.Drawing.Size(24, 24);
+            btnPin.TabIndex = 3;
+            btnPin.UseVisualStyleBackColor = true;
+            btnPin.Visible = false;
+            btnPin.Click += BtnPin_Click;
+            // 
+            // pb_Error
+            // 
+            pb_Error.Image = (System.Drawing.Image)resources.GetObject("pb_Error.Image");
+            pb_Error.Location = new System.Drawing.Point(12, 12);
+            pb_Error.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pb_Error.Name = "pb_Error";
+            pb_Error.Size = new System.Drawing.Size(37, 37);
+            pb_Error.TabIndex = 8;
+            pb_Error.TabStop = false;
+            // 
+            // btnOk
+            // 
+            btnOk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            btnOk.Location = new System.Drawing.Point(192, 88);
+            btnOk.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnOk.Name = "btnOk";
+            btnOk.Size = new System.Drawing.Size(88, 27);
+            btnOk.TabIndex = 1;
+            btnOk.Text = "OK";
+            btnOk.UseVisualStyleBackColor = true;
+            // 
+            // decrementSecondsLeftTimer
+            // 
+            decrementSecondsLeftTimer.Enabled = true;
+            decrementSecondsLeftTimer.Interval = 1000;
+            decrementSecondsLeftTimer.Tick += DecrementSecondsLeft_Tick;
+            // 
+            // closeTimer
+            // 
+            closeTimer.Tick += Close_Tick;
+            // 
+            // ErrorBox
+            // 
+            AcceptButton = btnOk;
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(470, 123);
+            Controls.Add(p_Main);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            MinimumSize = new System.Drawing.Size(477, 145);
+            Name = "ErrorBox";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            Text = "Title";
+            Load += ErrorBox_Load;
+            Shown += ErrorBox_Shown;
+            p_Main.ResumeLayout(false);
+            cmsMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pb_Error).EndInit();
+            ResumeLayout(false);
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel p_Main;
 		private System.Windows.Forms.Button btnUnpin;
 		private System.Windows.Forms.Button btnPin;
 		private System.Windows.Forms.PictureBox pb_Error;
@@ -192,8 +247,8 @@
 		private System.Windows.Forms.Timer closeTimer;
 		private System.Windows.Forms.ToolTip tooltip;
 		private System.Windows.Forms.RichTextBox rtbMessage;
-		private System.Windows.Forms.ContextMenuStrip cms_Menu;
-		private System.Windows.Forms.ToolStripMenuItem tsmi_Copy;
+		private System.Windows.Forms.ContextMenuStrip cmsMenu;
+		private System.Windows.Forms.ToolStripMenuItem tsmiCopy;
 		private System.Windows.Forms.Button btn_SendToClipboard;
 		private System.Windows.Forms.ToolTip tooltipTwo;
 	}
