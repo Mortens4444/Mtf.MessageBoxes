@@ -205,6 +205,9 @@ WaitForm.ExecuteAction(progress =>
 The `ExceptionHandler` class subscribes to `Application.ThreadException` and `AppDomain.CurrentDomain.UnhandledException` and shows an ErrorBox.
 
 ```csharp
+using Mtf.MessageBoxes.Exceptions;
+using System.Windows.Forms;
+
 static class Program
 {
     /// <summary>
