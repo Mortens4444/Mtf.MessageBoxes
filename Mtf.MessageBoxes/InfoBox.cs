@@ -102,12 +102,12 @@ namespace Mtf.MessageBoxes
 
         public static DialogResult Show(string title, string message)
         {
-            return Show(null, title, message, Constants.MILLIsecondsLeft);
+            return Show(null, title, message, Constants.MilliSecondsLeft);
         }
 
         public static DialogResult Show(Form parent, string title, string message)
         {
-            return Show(parent, title, message, Constants.MILLIsecondsLeft);
+            return Show(parent, title, message, Constants.MilliSecondsLeft);
         }
 
         public static DialogResult Show(Form parent, string title, string message, int intervalInMs)

@@ -14,5 +14,15 @@ namespace Mtf.MessageBoxes.Exceptions
         {
             return (new ExceptionDetails(ex)).Details;
         }
+
+        public static Exception GetInnermostException(this Exception ex)
+        {
+            while (ex.InnerException != null)
+            {
+                ex = ex.InnerException;
+            }
+            return ex;
+        }
+
     }
 }

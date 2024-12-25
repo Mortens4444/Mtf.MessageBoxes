@@ -216,7 +216,8 @@ static class Program
     [STAThread]
     static void Main()
     {
-        ExceptionHandler.CatchUnhandledExceptions();
+        var exceptionHandler = new ExceptionHandler();
+		exceptionHandler.CatchUnhandledExceptions();
 
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);

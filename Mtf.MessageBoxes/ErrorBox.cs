@@ -106,12 +106,12 @@ namespace Mtf.MessageBoxes
 
         public static DialogResult Show(string title, string message)
         {
-            return Show(null, title, message, Constants.MILLIsecondsLeft);
+            return Show(null, title, message, Constants.MilliSecondsLeft);
         }
 
         public static DialogResult Show(Form parent, string title, string message)
         {
-            return Show(parent, title, message, Constants.MILLIsecondsLeft);
+            return Show(parent, title, message, Constants.MilliSecondsLeft);
         }
 
         public static void ShowLastWin32Error()
@@ -133,7 +133,7 @@ namespace Mtf.MessageBoxes
         public static DialogResult Show(Exception ex)
         {
             var ed = new ExceptionDetails(ex);
-            return Show(null, ed.ExceptionType, ed.Details, Constants.MILLIsecondsLeft);
+            return Show(null, ed.ExceptionType, ed.Details, Constants.MilliSecondsLeft);
         }
 
         public static DialogResult ShowServiceNotification(Exception ex)
@@ -150,17 +150,17 @@ namespace Mtf.MessageBoxes
         public static DialogResult Show(Form parent, Exception ex)
         {
             var ed = new ExceptionDetails(ex);
-            return Show(parent, ed.ExceptionType, ed.Details, Constants.MILLIsecondsLeft);
+            return Show(parent, ed.ExceptionType, ed.Details, Constants.MilliSecondsLeft);
         }
 
         public static DialogResult Show(Form parent, string title, Exception ex)
         {
-            return Show(parent, title, ex.GetDetails(), Constants.MILLIsecondsLeft);
+            return Show(parent, title, ex.GetDetails(), Constants.MilliSecondsLeft);
         }
 
         public static DialogResult Show(string title, Exception ex)
         {
-            return Show(null, title, ex.GetDetails(), Constants.MILLIsecondsLeft);
+            return Show(null, title, ex.GetDetails(), Constants.MilliSecondsLeft);
         }
 
         public static DialogResult Show(string title, Exception ex, int intervalInMs)

@@ -8,8 +8,8 @@
 
         public const string FILE_NOT_FOUND = "File not found: ";
 
-        //// ErrorBox constants
-        public const int MILLIsecondsLeft = 10000;
+        // ErrorBox constants
+        public const int MilliSecondsLeft = 10000;
 
         public const string OK = "OK";
         public const string CANCEL = "Cancel";
