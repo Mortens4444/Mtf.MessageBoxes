@@ -34,25 +34,43 @@ namespace Mtf.MessageBoxes
         public static void ExecuteAction(Action<IProgress<ProgressReport>> action, int from, int to, string text = null)
         {
             var waitForm = new WaitForm(text, from, to);
+            var handle = waitForm.Handle;
             var progress = new Progress<ProgressReport>(report =>
             {
-                if (waitForm.progressBar.Style != ProgressBarStyle.Marquee && report.Percentage >= waitForm.progressBar.Minimum && report.Percentage <= waitForm.progressBar.Maximum)
+                waitForm.Invoke((Action)(() =>
                 {
-                    waitForm.progressBar.Value = report.Percentage;
-                }
+                    if (waitForm.progressBar.Style != ProgressBarStyle.Marquee && report.Percentage >= waitForm.progressBar.Minimum && report.Percentage <= waitForm.progressBar.Maximum)
+                    {
+                        waitForm.progressBar.Value = report.Percentage;
+                    }
 
-                if (!String.IsNullOrEmpty(report.StatusMessage))
-                {
-                    waitForm.lblPleaseWait.Text = ShortenUrl(report.StatusMessage, 60);
-                }
+                    if (!String.IsNullOrEmpty(report.StatusMessage))
+                    {
+                        waitForm.lblPleaseWait.Text = ShortenUrl(report.StatusMessage, 60);
+                    }
+                }));
             });
 
             Task.Run(() => action(progress))
-                .ContinueWith((t) => waitForm.Invoke((Action)(() => waitForm.Close())));
+                .ContinueWith((t) => {
+                    if (t.IsFaulted)
+                    {
+                        ErrorBox.Show(t.Exception);
+                    }
 
-            if (!waitForm.IsDisposed)
+                    if (!waitForm.IsDisposed && waitForm.IsHandleCreated)
+                    {
+                        waitForm.Invoke((Action)(() => waitForm.Close()));
+                    }
+                }, TaskScheduler.FromCurrentSynchronizationContext());
+
+            if (!waitForm.IsDisposed && waitForm.IsHandleCreated)
             {
-                waitForm.ShowDialog();
+                try
+                {
+                    waitForm.ShowDialog();
+                }
+                catch (ObjectDisposedException) { }
             }
         }
 

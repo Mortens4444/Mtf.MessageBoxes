@@ -124,7 +124,6 @@ namespace Mtf.MessageBoxes.Exceptions
             {
                 stringBuilder.AppendLine(String.Format("Win32 NativeErrorCode: {0} - {1}", win32Exception.NativeErrorCode, (SystemErrorCodes)win32Exception.NativeErrorCode));
             }
-
             else if (ex is ManagementException managementException)
             {
                 if (managementException.ErrorInformation != null)

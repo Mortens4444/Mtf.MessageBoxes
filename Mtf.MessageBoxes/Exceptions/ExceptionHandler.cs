@@ -33,7 +33,11 @@ namespace Mtf.MessageBoxes.Exceptions
             {
                 if (e.ExceptionObject is Exception exception)
                 {
+#if NET462_OR_GREATER
                     logger?.LogError(exception, "Unhandled exception (AppDomain.CurrentDomain)");
+#else
+                    logger?.LogError(String.Concat("Unhandled exception (AppDomain.CurrentDomain): ", exception.ToString()));
+#endif
                     ShowException(exception, timeout);
                 }
             }
@@ -47,7 +51,11 @@ namespace Mtf.MessageBoxes.Exceptions
         {
             try
             {
+#if NET462_OR_GREATER
                 logger?.LogError(e.Exception, "Unhandled exception (Application.ThreadException)");
+#else
+                logger?.LogError(String.Concat("Unhandled exception (Application.ThreadException): ", e.Exception.ToString()));
+#endif
                 ShowException(e.Exception, timeout);
             }
             catch (Exception ex)
