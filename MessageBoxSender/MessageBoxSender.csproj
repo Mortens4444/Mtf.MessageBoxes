@@ -1,8 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-    <TargetFrameworks>net9.0-windows;net8.0-windows;net481;net48;net452</TargetFrameworks>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <!--<TargetFrameworks>net9.0-windows;net8.0-windows;net481;net48;net462;net452</TargetFrameworks>-->
 		<ImplicitUsings>disable</ImplicitUsings>
 		<UseWindowsForms>true</UseWindowsForms>
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>

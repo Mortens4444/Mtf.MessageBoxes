@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
+using Mtf.MessageBoxes.Exceptions;
 
 namespace MessageBoxSender
 {
@@ -16,6 +17,9 @@ namespace MessageBoxSender
         [STAThread]
         static void Main(string[] args)
         {
+            var exceptionHandler = new ExceptionHandler();
+            exceptionHandler.CatchUnhandledExceptions();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputBox));
             p_Main = new System.Windows.Forms.Panel();
             rtbAnswer = new System.Windows.Forms.RichTextBox();
             rtbQuestion = new System.Windows.Forms.RichTextBox();
@@ -89,7 +88,7 @@
             // 
             btnUnpin.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             btnUnpin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            btnUnpin.Image = (System.Drawing.Image)resources.GetObject("btnUnpin.Image");
+            btnUnpin.Image = Properties.Resources.unpin;
             btnUnpin.Location = new System.Drawing.Point(433, 90);
             btnUnpin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnUnpin.Name = "btnUnpin";
@@ -103,7 +102,7 @@
             // 
             btnPin.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             btnPin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            btnPin.Image = (System.Drawing.Image)resources.GetObject("btnPin.Image");
+            btnPin.Image = Properties.Resources.pin;
             btnPin.Location = new System.Drawing.Point(433, 90);
             btnPin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnPin.Name = "btnPin";
@@ -139,7 +138,7 @@
             // 
             // pictureBox
             // 
-            pictureBox.Image = (System.Drawing.Image)resources.GetObject("pictureBox.Image");
+            pictureBox.Image = Properties.Resources.question;
             pictureBox.Location = new System.Drawing.Point(12, 12);
             pictureBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pictureBox.Name = "pictureBox";

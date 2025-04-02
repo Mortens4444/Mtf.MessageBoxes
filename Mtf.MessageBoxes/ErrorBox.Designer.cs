@@ -80,7 +80,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ErrorBox));
             p_Main = new System.Windows.Forms.Panel();
             btn_SendToClipboard = new System.Windows.Forms.Button();
             rtbMessage = new System.Windows.Forms.RichTextBox();
@@ -118,7 +117,7 @@
             // 
             btn_SendToClipboard.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             btn_SendToClipboard.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            btn_SendToClipboard.Image = (System.Drawing.Image)resources.GetObject("btn_SendToClipboard.Image");
+            btn_SendToClipboard.Image = Properties.Resources.clipboard;
             btn_SendToClipboard.Location = new System.Drawing.Point(401, 90);
             btn_SendToClipboard.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btn_SendToClipboard.Name = "btn_SendToClipboard";
@@ -144,13 +143,12 @@
             // 
             cmsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmiCopy });
             cmsMenu.Name = "contextMenuStrip1";
-            cmsMenu.Size = new System.Drawing.Size(181, 48);
+            cmsMenu.Size = new System.Drawing.Size(103, 26);
             // 
             // tsmiCopy
             // 
-            tsmiCopy.Image = Resource.copy;
             tsmiCopy.Name = "tsmiCopy";
-            tsmiCopy.Size = new System.Drawing.Size(180, 22);
+            tsmiCopy.Size = new System.Drawing.Size(102, 22);
             tsmiCopy.Text = "Copy";
             tsmiCopy.Click += Tsmi_Copy_Click;
             // 
@@ -158,7 +156,7 @@
             // 
             btnUnpin.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             btnUnpin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            btnUnpin.Image = (System.Drawing.Image)resources.GetObject("btnUnpin.Image");
+            btnUnpin.Image = Properties.Resources.unpin;
             btnUnpin.Location = new System.Drawing.Point(433, 90);
             btnUnpin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnUnpin.Name = "btnUnpin";
@@ -172,7 +170,7 @@
             // 
             btnPin.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             btnPin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            btnPin.Image = (System.Drawing.Image)resources.GetObject("btnPin.Image");
+            btnPin.Image = Properties.Resources.pin;
             btnPin.Location = new System.Drawing.Point(433, 90);
             btnPin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             btnPin.Name = "btnPin";
@@ -184,7 +182,7 @@
             // 
             // pb_Error
             // 
-            pb_Error.Image = (System.Drawing.Image)resources.GetObject("pb_Error.Image");
+            pb_Error.Image = Properties.Resources.error;
             pb_Error.Location = new System.Drawing.Point(12, 12);
             pb_Error.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             pb_Error.Name = "pb_Error";
