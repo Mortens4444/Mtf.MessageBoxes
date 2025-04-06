@@ -16,13 +16,15 @@ namespace Mtf.MessageBoxes.Exceptions
         public void CatchUnhandledExceptions(bool showFirstChanceExceptions = false, int timeout = Timeout.Infinite)
         {
             this.timeout = timeout;
-            
+
             Application.ThreadException += Application_ThreadException;
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
-
             AppDomain.CurrentDomain.TypeResolve += CurrentDomain_TypeResolve;
-            AppDomain.CurrentDomain.FirstChanceException += CurrentDomain_FirstChanceException;
+            if (showFirstChanceExceptions)
+            {
+                AppDomain.CurrentDomain.FirstChanceException += CurrentDomain_FirstChanceException;
+            }
         }
 
         private Assembly CurrentDomain_TypeResolve(object sender, ResolveEventArgs args)
