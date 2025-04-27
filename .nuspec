@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Mtf.MessageBoxes</id>
-    <version>4.0.47</version>
+    <version>4.0.54</version>
     <description>
 ## Custom Message Boxes for Enhanced User Interaction
 
@@ -45,24 +45,24 @@ This library provides a collection of custom message boxes designed to enhance u
 		<dependency id="System.Management" version="5.0.0" />
 	  </group>
 	  <group targetFramework="net462">
-		<dependency id="Microsoft.Extensions.Logging" version="9.0.3" />
-		<dependency id="System.Management" version="9.0.3" />
+		<dependency id="Microsoft.Extensions.Logging" version="9.0.4" />
+		<dependency id="System.Management" version="9.0.4" />
 	  </group>
 	  <group targetFramework="net48">
-		<dependency id="Microsoft.Extensions.Logging" version="9.0.3" />
-		<dependency id="System.Management" version="9.0.3" />
+		<dependency id="Microsoft.Extensions.Logging" version="9.0.4" />
+		<dependency id="System.Management" version="9.0.4" />
 	  </group>
 	  <group targetFramework="net481">
-		<dependency id="Microsoft.Extensions.Logging" version="9.0.3" />
-		<dependency id="System.Management" version="9.0.3" />
+		<dependency id="Microsoft.Extensions.Logging" version="9.0.4" />
+		<dependency id="System.Management" version="9.0.4" />
 	  </group>
 	  <group targetFramework="net8.0-windows7">
-		<dependency id="Microsoft.Extensions.Logging" version="9.0.3" />
-		<dependency id="System.Management" version="9.0.3" />
+		<dependency id="Microsoft.Extensions.Logging" version="9.0.4" />
+		<dependency id="System.Management" version="9.0.4" />
 	  </group>
 	  <group targetFramework="net9.0-windows7">
-		<dependency id="Microsoft.Extensions.Logging" version="9.0.3" />
-		<dependency id="System.Management" version="9.0.3" />
+		<dependency id="Microsoft.Extensions.Logging" version="9.0.4" />
+		<dependency id="System.Management" version="9.0.4" />
 	  </group>
     </dependencies>
   </metadata>

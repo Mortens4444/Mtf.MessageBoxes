@@ -23,6 +23,8 @@ namespace MessageBoxSender
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            ErrorBox.Show("Error", "Test");
+
             string title = "Message box sender";
             string message = "This is a default message, you can set up a custom message with the -m directive.";
             var messageType = MessageType.Information;

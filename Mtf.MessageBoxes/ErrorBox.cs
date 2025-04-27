@@ -1,5 +1,4 @@
-﻿using Mtf.MessageBoxes;
-using Mtf.MessageBoxes.Enums;
+﻿using Mtf.MessageBoxes.Enums;
 using Mtf.MessageBoxes.Exceptions;
 using System;
 using System.ComponentModel;
@@ -18,24 +17,31 @@ namespace Mtf.MessageBoxes
 
         ErrorBox(string title, string message, int intervalInMs)
         {
-            InitializeComponent();
-            btnOk.Text = OK;
-            Text = String.Concat(Application.ProductName, ": ", title);
-            rtbMessage.Text = message;
-            closeTimer.Enabled = false;
-            tsmiCopy.Text = Copy;
-            if (intervalInMs != Timeout.Infinite)
+            try
             {
-                closeTimer.Interval = intervalInMs;
-            }
-            else
-            {
-                btnPin.Visible = false;
-                btnUnpin.Visible = false;
-            }
-            decrementSecondsLeftTimer.Enabled = false;
+                InitializeComponent();
+                btnOk.Text = OK;
+                Text = String.Concat(Application.ProductName, ": ", title);
+                rtbMessage.Text = message;
+                closeTimer.Enabled = false;
+                tsmiCopy.Text = Copy;
+                if (intervalInMs != Timeout.Infinite)
+                {
+                    closeTimer.Interval = intervalInMs;
+                }
+                else
+                {
+                    btnPin.Visible = false;
+                    btnUnpin.Visible = false;
+                }
+                decrementSecondsLeftTimer.Enabled = false;
 
-            tooltipTwo.SetToolTip(btn_SendToClipboard, CopyToClipboard);
+                tooltipTwo.SetToolTip(btn_SendToClipboard, CopyToClipboard);
+            }
+            catch
+            {
+                MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
 
         private void BtnPin_Click(object sender, EventArgs e)

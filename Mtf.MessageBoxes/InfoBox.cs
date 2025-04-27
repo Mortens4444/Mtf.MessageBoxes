@@ -1,5 +1,4 @@
-﻿using Mtf.MessageBoxes;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Text;
 using System.Threading;
@@ -13,21 +12,28 @@ namespace Mtf.MessageBoxes
 
         InfoBox(string title, string message, int intervalInMs)
         {
-            InitializeComponent();
-            btnOk.Text = OK;
-            Text = String.Concat(Application.ProductName, ": ", title);
-            rtbMessage.Text = message;
-            closeTimer.Enabled = false;
-            if (intervalInMs != Timeout.Infinite)
+            try
             {
-                closeTimer.Interval = intervalInMs;
+                InitializeComponent();
+                btnOk.Text = OK;
+                Text = String.Concat(Application.ProductName, ": ", title);
+                rtbMessage.Text = message;
+                closeTimer.Enabled = false;
+                if (intervalInMs != Timeout.Infinite)
+                {
+                    closeTimer.Interval = intervalInMs;
+                }
+                else
+                {
+                    btnPin.Visible = false;
+                    btnUnpin.Visible = false;
+                }
+                decrementSecondsLeftTimer.Enabled = false;
             }
-            else
+            catch
             {
-                btnPin.Visible = false;
-                btnUnpin.Visible = false;
+                MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
-            decrementSecondsLeftTimer.Enabled = false;
         }
 
         [DefaultValue("")]

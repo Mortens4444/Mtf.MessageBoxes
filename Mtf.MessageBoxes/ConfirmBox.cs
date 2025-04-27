@@ -16,21 +16,28 @@ namespace Mtf.MessageBoxes
 
         protected ConfirmBox(string title, string message, int intervalInMs = 10000, Decide defaultChoice = Decide.No)
         {
-            InitializeComponent();
-            btn_Yes.Text = Yes;
-            btn_No.Text = No;
-            Text = String.Concat(Application.ProductName, ": ", title);
-            rtbMessage.Text = message;
-            closeTimer.Enabled = false;
-            this.defaultChoice = Decide.Yes == defaultChoice;
-
-            showAutocloseButtons = intervalInMs != Timeout.Infinite;
-            if (showAutocloseButtons)
+            try
             {
-                closeTimer.Interval = intervalInMs;
-            }
+                InitializeComponent();
+                btn_Yes.Text = Yes;
+                btn_No.Text = No;
+                Text = String.Concat(Application.ProductName, ": ", title);
+                rtbMessage.Text = message;
+                closeTimer.Enabled = false;
+                this.defaultChoice = Decide.Yes == defaultChoice;
 
-            decrementSecondsLeftTimer.Enabled = false;
+                showAutocloseButtons = intervalInMs != Timeout.Infinite;
+                if (showAutocloseButtons)
+                {
+                    closeTimer.Interval = intervalInMs;
+                }
+
+                decrementSecondsLeftTimer.Enabled = false;
+            }
+            catch
+            {
+                MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            }
         }
 
         [DefaultValue("")]
