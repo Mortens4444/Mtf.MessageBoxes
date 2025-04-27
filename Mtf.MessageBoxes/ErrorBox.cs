@@ -38,8 +38,9 @@ namespace Mtf.MessageBoxes
 
                 tooltipTwo.SetToolTip(btn_SendToClipboard, CopyToClipboard);
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message, ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }

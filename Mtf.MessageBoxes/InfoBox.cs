@@ -30,8 +30,9 @@ namespace Mtf.MessageBoxes
                 }
                 decrementSecondsLeftTimer.Enabled = false;
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message, ex.GetType().Name, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
         }
