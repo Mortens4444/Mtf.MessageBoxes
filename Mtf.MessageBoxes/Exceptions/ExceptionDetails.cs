@@ -62,11 +62,18 @@ namespace Mtf.MessageBoxes.Exceptions
                 if (method != null)
                 {
                     if (method.IsConstructor && method.ReflectedType != null)
+                    {
                         result.Append(method.ReflectedType.FullName);
+                    }
                     else if (method.Name == ".cctor" && method.IsStatic && method.IsSpecialName && method.ReflectedType != null)
+                    {
                         result.Append(String.Concat("static ", method.ReflectedType.FullName));
+                    }
                     else
+                    {
                         result.Append(method.Name);
+                    }
+
                     var parameters = String.Join(", ", method.GetParameters().Select(parameter => parameter.ToString()));
                     result.AppendFormat("({0})", parameters);
                 }
