@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Mtf.MessageBoxes</id>
-    <version>5.0.4</version>
+    <version>5.0.5</version>
     <description>
 ## Custom Message Boxes for Enhanced User Interaction
 

@@ -10,13 +10,15 @@ namespace Mtf.MessageBoxes
     {
         private readonly bool showAutocloseButtons;
 
+        private string okText = "";
+        private string cancelText = "";
+
         protected InputBox() { }
 
         public InputBox(string title, string question, int intervalInMs = Timeout.Infinite, string defaultAnswer = "", MessageBoxButtons messageBoxButtons = MessageBoxButtons.OKCancel)
         {
             InitializeComponent();
-            btnOk.Text = OK;
-            btnCancel.Text = Cancel;
+
             Text = String.Concat(Application.ProductName, ": ", title);
             rtbQuestion.Text = question;
             rtbAnswer.Text = defaultAnswer;
@@ -38,8 +40,10 @@ namespace Mtf.MessageBoxes
                     break;
 
                 case MessageBoxButtons.AbortRetryIgnore:
+                    okText = Retry;
                     btnOk.Text = Retry;
                     btnOk.DialogResult = DialogResult.Retry;
+                    cancelText = Abort;
                     btnCancel.Text = Abort;
                     btnCancel.DialogResult = DialogResult.Abort;
                     break;
@@ -48,25 +52,32 @@ namespace Mtf.MessageBoxes
                     throw new NotImplementedException("Use MessageBoxButtons.YesNo instead of this option.");
 
                 case MessageBoxButtons.YesNo:
+                    okText = Yes;
                     btnOk.Text = Yes;
                     btnOk.DialogResult = DialogResult.Yes;
+                    cancelText = No;
                     btnCancel.Text = No;
                     btnCancel.DialogResult = DialogResult.No;
                     btnCancel.Visible = true;
                     break;
 
                 case MessageBoxButtons.RetryCancel:
+                    okText = Retry;
                     btnOk.Text = Retry;
                     btnOk.DialogResult = DialogResult.Retry;
+                    cancelText = Cancel;
                     btnCancel.Text = Cancel;
                     btnCancel.Visible = true;
                     break;
 
                 case MessageBoxButtons.OKCancel:
                 default:
-                    //btnOk.Text = OK;
+                    okText = OK;
+                    btnOk.Text = OK;
                     btnOk.DialogResult = DialogResult.OK;
-                    //btnCancel.Text = Cancel;
+                    cancelText = Cancel;
+                    btnCancel.Text = Cancel;
+                    btnCancel.DialogResult = DialogResult.Cancel;
                     break;
             }
         }
@@ -102,8 +113,8 @@ namespace Mtf.MessageBoxes
             btnPin.Visible = false;
             btnUnpin.Visible = showAutocloseButtons;
             tooltip.SetToolTip(btnUnpin, EnableAutomaticMessageClosing);
-            btnOk.Text = Yes;
-            btnCancel.Text = No;
+            btnOk.Text = okText;
+            btnCancel.Text = cancelText;
         }
 
         private void UnpinMessage()
@@ -120,8 +131,8 @@ namespace Mtf.MessageBoxes
         private void ShowMessageOnDefaultButton()
         {
             var okSecondsLeft = new StringBuilder();
-            okSecondsLeft.AppendFormat("{0} ({1})", OK, secondsLeft);
-            btnCancel.Text = okSecondsLeft.ToString();
+            okSecondsLeft.AppendFormat("{0} ({1})", okText, secondsLeft);
+            btnOk.Text = okSecondsLeft.ToString();
         }
 
         private void DecrementSecondsLeft_Tick(object sender, EventArgs e)
