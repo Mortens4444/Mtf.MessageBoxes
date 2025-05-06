@@ -33,14 +33,14 @@ namespace Mtf.MessageBoxes
             switch (messageBoxButtons)
             {
                 case MessageBoxButtons.OK:
-                    btnOk.Text = Constants.OK;
+                    //btnOk.Text = OK;
                     btnCancel.Visible = false;
                     break;
 
                 case MessageBoxButtons.AbortRetryIgnore:
-                    btnOk.Text = Constants.RETRY;
+                    btnOk.Text = Retry;
                     btnOk.DialogResult = DialogResult.Retry;
-                    btnCancel.Text = Constants.ABORT;
+                    btnCancel.Text = Abort;
                     btnCancel.DialogResult = DialogResult.Abort;
                     break;
 
@@ -48,25 +48,25 @@ namespace Mtf.MessageBoxes
                     throw new NotImplementedException("Use MessageBoxButtons.YesNo instead of this option.");
 
                 case MessageBoxButtons.YesNo:
-                    btnOk.Text = Constants.YES;
+                    btnOk.Text = Yes;
                     btnOk.DialogResult = DialogResult.Yes;
-                    btnCancel.Text = Constants.NO;
+                    btnCancel.Text = No;
                     btnCancel.DialogResult = DialogResult.No;
                     btnCancel.Visible = true;
                     break;
 
                 case MessageBoxButtons.RetryCancel:
-                    btnOk.Text = Constants.RETRY;
+                    btnOk.Text = Retry;
                     btnOk.DialogResult = DialogResult.Retry;
-                    btnCancel.Text = Constants.CANCEL;
+                    btnCancel.Text = Cancel;
                     btnCancel.Visible = true;
                     break;
 
                 case MessageBoxButtons.OKCancel:
                 default:
-                    //btnOk.Text = Constants.OK;
+                    //btnOk.Text = OK;
                     btnOk.DialogResult = DialogResult.OK;
-                    //btnCancel.Text = Constants.CANCEL;
+                    //btnCancel.Text = Cancel;
                     break;
             }
         }

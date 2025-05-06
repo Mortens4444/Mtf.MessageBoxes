@@ -6,6 +6,8 @@ namespace Mtf.MessageBoxes
     {
         protected Form parent;
         protected int secondsLeft;
+        public static string Abort = Constants.ABORT;
+        public static string Retry = Constants.RETRY;
         public static string OK = Constants.OK;
         public static string Cancel = Constants.CANCEL;
         public static string Yes = Constants.YES;
