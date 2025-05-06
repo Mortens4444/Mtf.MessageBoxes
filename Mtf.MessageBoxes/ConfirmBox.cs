@@ -10,7 +10,7 @@ namespace Mtf.MessageBoxes
     public partial class ConfirmBox : BaseBox
     {
         private readonly bool defaultChoice;
-        private readonly bool showAutocloseButtons;
+        private readonly bool showAutoCloseButtons;
 
         protected ConfirmBox() { }
 
@@ -26,8 +26,8 @@ namespace Mtf.MessageBoxes
                 closeTimer.Enabled = false;
                 this.defaultChoice = Decide.Yes == defaultChoice;
 
-                showAutocloseButtons = intervalInMs != Timeout.Infinite;
-                if (showAutocloseButtons)
+                showAutoCloseButtons = intervalInMs != Timeout.Infinite;
+                if (showAutoCloseButtons)
                 {
                     closeTimer.Interval = intervalInMs;
                 }
@@ -69,7 +69,7 @@ namespace Mtf.MessageBoxes
             closeTimer.Stop();
             decrementSecondsLeftTimer.Stop();
             btnPin.Visible = false;
-            btnUnpin.Visible = showAutocloseButtons;
+            btnUnpin.Visible = showAutoCloseButtons;
             tooltip.SetToolTip(btnUnpin, EnableAutomaticMessageClosing);
             btn_Yes.Text = Yes;
             btn_No.Text = No;

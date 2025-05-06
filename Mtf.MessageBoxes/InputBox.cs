@@ -12,7 +12,7 @@ namespace Mtf.MessageBoxes
 
         protected InputBox() { }
 
-        public InputBox(string title, string question, int intervalInMs = Timeout.Infinite, string defaultAnswer = "")
+        public InputBox(string title, string question, int intervalInMs = Timeout.Infinite, string defaultAnswer = "", MessageBoxButtons messageBoxButtons = MessageBoxButtons.OKCancel)
         {
             InitializeComponent();
             btnOk.Text = OK;
@@ -29,6 +29,46 @@ namespace Mtf.MessageBoxes
             }
 
             decrementSecondsLeftTimer.Enabled = false;
+
+            switch (messageBoxButtons)
+            {
+                case MessageBoxButtons.OK:
+                    btnOk.Text = Constants.OK;
+                    btnCancel.Visible = false;
+                    break;
+
+                case MessageBoxButtons.AbortRetryIgnore:
+                    btnOk.Text = Constants.RETRY;
+                    btnOk.DialogResult = DialogResult.Retry;
+                    btnCancel.Text = Constants.ABORT;
+                    btnCancel.DialogResult = DialogResult.Abort;
+                    break;
+
+                case MessageBoxButtons.YesNoCancel:
+                    throw new NotImplementedException("Use MessageBoxButtons.YesNo instead of this option.");
+
+                case MessageBoxButtons.YesNo:
+                    btnOk.Text = Constants.YES;
+                    btnOk.DialogResult = DialogResult.Yes;
+                    btnCancel.Text = Constants.NO;
+                    btnCancel.DialogResult = DialogResult.No;
+                    btnCancel.Visible = true;
+                    break;
+
+                case MessageBoxButtons.RetryCancel:
+                    btnOk.Text = Constants.RETRY;
+                    btnOk.DialogResult = DialogResult.Retry;
+                    btnCancel.Text = Constants.CANCEL;
+                    btnCancel.Visible = true;
+                    break;
+
+                case MessageBoxButtons.OKCancel:
+                default:
+                    //btnOk.Text = Constants.OK;
+                    btnOk.DialogResult = DialogResult.OK;
+                    //btnCancel.Text = Constants.CANCEL;
+                    break;
+            }
         }
 
         [DefaultValue("")]

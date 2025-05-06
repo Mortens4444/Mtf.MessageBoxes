@@ -11,8 +11,10 @@
         // ErrorBox constants
         public const int MilliSecondsLeft = 10000;
 
+        public const string ABORT = "Abort";
         public const string OK = "OK";
         public const string CANCEL = "Cancel";
+        public const string RETRY = "Retry";
         public const string YES = "Yes";
         public const string NO = "No";
         public const string ENABLE_AUTOMATIC_MESSAGE_CLOSING = "Enable automatic message closing";
