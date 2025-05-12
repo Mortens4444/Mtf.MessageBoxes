@@ -8,7 +8,7 @@ namespace Mtf.MessageBoxes
 {
     public partial class InputBox : BaseBox
     {
-        private readonly bool showAutocloseButtons;
+        private readonly bool showAutoCloseButtons;
 
         private string okText = "";
         private string cancelText = "";
@@ -24,8 +24,8 @@ namespace Mtf.MessageBoxes
             rtbAnswer.Text = defaultAnswer;
             closeTimer.Enabled = false;
 
-            showAutocloseButtons = intervalInMs != Timeout.Infinite;
-            if (showAutocloseButtons)
+            showAutoCloseButtons = intervalInMs != Timeout.Infinite;
+            if (showAutoCloseButtons)
             {
                 closeTimer.Interval = intervalInMs;
             }
@@ -111,7 +111,7 @@ namespace Mtf.MessageBoxes
             closeTimer.Stop();
             decrementSecondsLeftTimer.Stop();
             btnPin.Visible = false;
-            btnUnpin.Visible = showAutocloseButtons;
+            btnUnpin.Visible = showAutoCloseButtons;
             tooltip.SetToolTip(btnUnpin, EnableAutomaticMessageClosing);
             btnOk.Text = okText;
             btnCancel.Text = cancelText;

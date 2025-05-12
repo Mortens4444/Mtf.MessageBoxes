@@ -15,7 +15,7 @@ namespace Mtf.MessageBoxes.Exceptions
 
         public string ExceptionType { get; private set; }
 
-        public string[] StackFrameDetials { get; private set; }
+        public string[] StackFrameDetails { get; private set; }
 
         private readonly Exception firstException;
 
@@ -37,7 +37,7 @@ namespace Mtf.MessageBoxes.Exceptions
                     stackFrameDetails.Add(stackDetail);
                 }
             }
-            StackFrameDetials = stackFrameDetails.ToArray();
+            StackFrameDetails = stackFrameDetails.ToArray();
             Exception = ex;
             ExceptionType = ex.GetType().ToString();
         }
@@ -102,7 +102,7 @@ namespace Mtf.MessageBoxes.Exceptions
 
             if (extraInfo)
             {
-                details.AppendLine(String.Join(Environment.NewLine, StackFrameDetials));
+                details.AppendLine(String.Join(Environment.NewLine, StackFrameDetails));
             }
 
             while (ex != null)

@@ -19,6 +19,11 @@ namespace Mtf.MessageBoxes
         {
             try
             {
+                try
+                {
+                    Console.Error.WriteLine($"{title}{Environment.NewLine}------------------------------------------------------------------{Environment.NewLine}{message}");
+                }
+                catch { }
                 InitializeComponent();
                 btnOk.Text = OK;
                 Text = String.Concat(Application.ProductName, ": ", title);
@@ -134,7 +139,10 @@ namespace Mtf.MessageBoxes
         public static void ShowLastWin32ErrorIfNotSuccess()
         {
             var error_code = Marshal.GetLastWin32Error();
-            if (error_code != 0) Show(new Win32Exception(error_code));
+            if (error_code != 0)
+            {
+                Show(new Win32Exception(error_code));
+            }
         }
 
         public static DialogResult Show(Exception ex)
