@@ -2,6 +2,7 @@
 using Mtf.MessageBoxes.Exceptions;
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -21,7 +22,9 @@ namespace Mtf.MessageBoxes
             {
                 try
                 {
-                    Console.Error.WriteLine($"{title}{Environment.NewLine}------------------------------------------------------------------{Environment.NewLine}{message}");
+                    var msg = $"{title}{Environment.NewLine}------------------------------------------------------------------{Environment.NewLine}{message}";
+                    Debug.WriteLine(msg);
+                    Console.Error.WriteLine(msg);
                 }
                 catch { }
                 InitializeComponent();
