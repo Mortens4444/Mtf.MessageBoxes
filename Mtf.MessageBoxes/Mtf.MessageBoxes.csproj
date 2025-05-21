@@ -1,32 +1,67 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFrameworks>net9.0-windows;net8.0-windows;net481;net48;net462;net452</TargetFrameworks>
+    <TargetFrameworks>net9.0-windows;net8.0-windows;net481;net462</TargetFrameworks>
     <ImplicitUsings>disable</ImplicitUsings>
     <UseWindowsForms>true</UseWindowsForms>
+    <WarningLevel>9999</WarningLevel>
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     <DebugType>full</DebugType>
+    <IncludeSymbols>true</IncludeSymbols>
+    <IncludeSource>true</IncludeSource>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <EmbedAllSources>true</EmbedAllSources>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
 
-  <Target Name="SetFileVersionFromNuspec" BeforeTargets="BeforeBuild">
-    <XmlPeek XmlInputPath="../.nuspec" Query="//*[local-name()='version']/text()">
-      <Output TaskParameter="Result" PropertyName="FileVersion" />
-    </XmlPeek>
-  </Target>
+  <PropertyGroup>
+    <Version>6.0.5</Version>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <FileVersion>$(Version)</FileVersion>
+    <InformationalVersion>$(Version)</InformationalVersion>
+  </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="1.1.2" />
-    <PackageReference Include="System.Management" Version="5.0.0" />
+  <PropertyGroup>
+    <PackageId>Mtf.MessageBoxes</PackageId>
+    <Authors>Mortens</Authors>
+    <Company>Mortens</Company>
+    <Description>
+Custom Message Boxes for Enhanced User Interaction
+
+This library provides a collection of custom message boxes designed to enhance user interaction within your application.
+
+The library includes the following message box types:
+
+- ConfirmBox: For prompting users to confirm an action.
+- ErrorBox: To display error messages with ease.
+- InfoBox: For presenting informational messages.
+- DebugErrorBox: Specifically designed for displaying debugging-related errors.
+- InputBox: To allow users to input text.
+- WaitForm: To indicate that a process is running in the background.
+- ExceptionHandler: For gracefully handling and displaying exceptions.
+
+Key Features:
+
+- Copyable Error Messages: Users can easily copy error messages directly from the ErrorBox, simplifying error reporting and troubleshooting.
+- Configurable Timeout: You can set a timeout for the message boxes, enabling them to automatically close after a specified duration, which can improve the overall user experience.
+
+    </Description>
+    <PackageReadmeFile>.\ReadMe.md</PackageReadmeFile>
+    <PackageLicenseFile>.\LICENSE.txt</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/Mortens4444/Mtf.MessageBoxes.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Automatic AutoClose MessageBoxes ConfirmBox DebugErrorBox ErrorBox InfoBox Windows Forms InputBox WaitForm ExceptionHandler Mortens</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\ReadMe.md" Pack="true" PackagePath="" />
+    <None Include="..\LICENSE.txt" Pack="true" PackagePath="" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net462'">
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.4" />
-    <PackageReference Include="System.Management" Version="9.0.4" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' != 'net452' and '$(TargetFramework)' != 'net462'">
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.4" />
-    <PackageReference Include="System.Management" Version="9.0.4" />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.5" />
+    <PackageReference Include="System.Management" Version="9.0.5" />
   </ItemGroup>
 
   <ItemGroup>
