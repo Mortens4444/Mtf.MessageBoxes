@@ -22,57 +22,6 @@
 
         #region Windows Form Designer generated code
 
-
-        /* Unmerged change from project 'Mtf.MessageBoxes (net8.0-windows)'
-        Before:
-                    this.cms_Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
-                    this.tsmi_Copy = new System.Windows.Forms.ToolStripMenuItem();
-        After:
-                    this.cmsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-                    this.tsmi_Copy = new System.Windows.Forms.ToolStripMenuItem();
-        */
-
-        /* Unmerged change from project 'Mtf.MessageBoxes (net8.0-windows)'
-        Before:
-                    this.cms_Menu.SuspendLayout();
-                    ((System.ComponentModel.ISupportInitialize)(this.pb_Error)).BeginInit();
-        After:
-                    this.cmsMenu.SuspendLayout();
-                    ((System.ComponentModel.ISupportInitialize)(this.pb_Error)).BeginInit();
-        */
-
-        /* Unmerged change from project 'Mtf.MessageBoxes (net8.0-windows)'
-        Before:
-                    this.rtbMessage.ContextMenuStrip = this.cms_Menu;
-                    this.rtbMessage.Location = new System.Drawing.Point(48, 10);
-        After:
-                    this.rtbMessage.ContextMenuStrip = this.cmsMenu;
-                    this.rtbMessage.Location = new System.Drawing.Point(48, 10);
-        */
-
-        /* Unmerged change from project 'Mtf.MessageBoxes (net8.0-windows)'
-        Before:
-                    this.cms_Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                    this.tsmi_Copy});
-                    this.cms_Menu.Name = "contextMenuStrip1";
-                    this.cms_Menu.Size = new System.Drawing.Size(100, 26);
-                    // 
-        After:
-                    this.cmsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                    this.tsmi_Copy});
-                    this.cmsMenu.Name = "contextMenuStrip1";
-                    this.cmsMenu.Size = new System.Drawing.Size(100, 26);
-                    // 
-        */
-
-        /* Unmerged change from project 'Mtf.MessageBoxes (net8.0-windows)'
-        Before:
-                    this.cms_Menu.ResumeLayout(false);
-                    ((System.ComponentModel.ISupportInitialize)(this.pb_Error)).EndInit();
-        After:
-                    this.cmsMenu.ResumeLayout(false);
-                    ((System.ComponentModel.ISupportInitialize)(this.pb_Error)).EndInit();
-        */
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -150,7 +99,7 @@
             tsmiCopy.Name = "tsmiCopy";
             tsmiCopy.Size = new System.Drawing.Size(102, 22);
             tsmiCopy.Text = "Copy";
-            tsmiCopy.Click += Tsmi_Copy_Click;
+            tsmiCopy.Click += TsmiCopy_Click;
             // 
             // btnUnpin
             // 

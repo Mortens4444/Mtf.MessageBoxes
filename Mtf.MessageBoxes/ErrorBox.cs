@@ -53,17 +53,7 @@ namespace Mtf.MessageBoxes
             }
         }
 
-        private void BtnPin_Click(object sender, EventArgs e)
-        {
-            PinMessage();
-        }
-
-        private void BtnUnpin_Click(object sender, EventArgs e)
-        {
-            UnpinMessage();
-        }
-
-        private void PinMessage()
+        protected override void PinMessage()
         {
             closeTimer.Stop();
             decrementSecondsLeftTimer.Stop();
@@ -73,7 +63,7 @@ namespace Mtf.MessageBoxes
             btnOk.Text = OK;
         }
 
-        private void UnpinMessage()
+        protected override void UnpinMessage()
         {
             btnPin.Visible = true;
             btnUnpin.Visible = false;
@@ -81,10 +71,10 @@ namespace Mtf.MessageBoxes
             closeTimer.Start();
             decrementSecondsLeftTimer.Start();
             secondsLeft = (int)(Math.Truncate((decimal)closeTimer.Interval / 1000));
-            ShowMessageOnOKButton();
+            ShowMessageOnDefaultButton();
         }
 
-        private void ShowMessageOnOKButton()
+        private void ShowMessageOnDefaultButton()
         {
             var okSecondsLeft = new StringBuilder(OK);
             okSecondsLeft.AppendFormat($" ({secondsLeft})");
@@ -94,24 +84,20 @@ namespace Mtf.MessageBoxes
         private void DecrementSecondsLeft_Tick(object sender, EventArgs e)
         {
             secondsLeft--;
-            ShowMessageOnOKButton();
+            ShowMessageOnDefaultButton();
         }
 
-        private static DialogResult Show(ErrorBox eb)
+        private static DialogResult Show(ErrorBox errorBox)
         {
-            if (eb.parent != null)
-            {
-                eb.Left = eb.parent.Left + (eb.parent.Width - eb.Width) / 2;
-                eb.Top = eb.parent.Top + (eb.parent.Height - eb.Height) / 2;
-            }
-            else eb.StartPosition = FormStartPosition.CenterScreen;
-
             Console.Beep(440, 200);
             try
             {
-                return eb.ShowDialog();
+                return BaseBox.Show(errorBox);
             }
-            catch { return DialogResult.None; }
+            catch
+            {
+                return DialogResult.None;
+            }
         }
 
         public static DialogResult Show(string title, string message, int intervalInMs)
@@ -136,7 +122,7 @@ namespace Mtf.MessageBoxes
 
         public static void ShowFileNotFound(string filename)
         {
-            Show(Constants.GENERAL_ERROR, String.Concat(Constants.FILE_NOT_FOUND, filename));
+            Show(Constants.GeneralError, String.Concat(Constants.FileNotFound, filename));
         }
 
         public static void ShowLastWin32ErrorIfNotSuccess()
@@ -188,17 +174,15 @@ namespace Mtf.MessageBoxes
 
         public static DialogResult Show(Form parent, string title, string message, int intervalInMs)
         {
-            var eb = new ErrorBox(title, message, intervalInMs)
+            var errorBox = new ErrorBox(title, message, intervalInMs)
             {
                 parent = parent
             };
-            if (intervalInMs != Timeout.Infinite) eb.UnpinMessage();
-            return Show(eb);
-        }
-
-        private void Close_Tick(object sender, EventArgs e)
-        {
-            Close();
+            if (intervalInMs != Timeout.Infinite)
+            {
+                errorBox.UnpinMessage();
+            }
+            return Show(errorBox);
         }
 
         private void ErrorBox_Shown(object sender, EventArgs e)
@@ -212,7 +196,7 @@ namespace Mtf.MessageBoxes
             SetWindowPos(Handle, new IntPtr(-1), 0, 0, 0, 0, SetWindowPosFlags.IgnoreResize | SetWindowPosFlags.IgnoreMove); // Set TOP_MOST
         }
 
-        private void Tsmi_Copy_Click(object sender, EventArgs e)
+        private void TsmiCopy_Click(object sender, EventArgs e)
         {
             ToClipboard();
         }

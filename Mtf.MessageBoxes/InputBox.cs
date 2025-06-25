@@ -10,8 +10,8 @@ namespace Mtf.MessageBoxes
     {
         private readonly bool showAutoCloseButtons;
 
-        private string okText = "";
-        private string cancelText = "";
+        private readonly string okText = "";
+        private readonly string cancelText = "";
 
         protected InputBox() { }
 
@@ -81,13 +81,6 @@ namespace Mtf.MessageBoxes
                     break;
             }
         }
-
-        [DefaultValue("")]
-        public override sealed string Text
-        {
-            get { return base.Text; }
-            set { base.Text = value; }
-        }
         
         [DefaultValue("")]
         public string Answer
@@ -96,17 +89,7 @@ namespace Mtf.MessageBoxes
             set { rtbAnswer.Text = value; }
         }
 
-        private void BtnPin_Click(object sender, EventArgs e)
-        {
-            PinMessage();
-        }
-
-        private void BtnUnpin_Click(object sender, EventArgs e)
-        {
-            UnpinMessage();
-        }
-
-        private void PinMessage()
+        protected override void PinMessage()
         {
             closeTimer.Stop();
             decrementSecondsLeftTimer.Stop();
@@ -117,7 +100,7 @@ namespace Mtf.MessageBoxes
             btnCancel.Text = cancelText;
         }
 
-        private void UnpinMessage()
+        protected override void UnpinMessage()
         {
             btnPin.Visible = true;
             btnUnpin.Visible = false;
@@ -141,21 +124,6 @@ namespace Mtf.MessageBoxes
             ShowMessageOnDefaultButton();
         }
 
-        private static DialogResult Show(InputBox cb)
-        {
-            if (cb.parent != null)
-            {
-                cb.Left = cb.parent.Left + (cb.parent.Width - cb.Width) / 2;
-                cb.Top = cb.parent.Top + (cb.parent.Height - cb.Height) / 2;
-            }
-            else
-            {
-                cb.StartPosition = FormStartPosition.CenterScreen;
-            }
-
-            return cb.ShowDialog();
-        }
-
         public static string Show(string title, string question, int intervalInMs = Timeout.Infinite, string defaultAnswer = "")
         {
             return Show(null, title, question, intervalInMs, defaultAnswer);
@@ -168,37 +136,30 @@ namespace Mtf.MessageBoxes
 
         public static string Show(Form parent, string title, string question, int intervalInMs = Timeout.Infinite, string defaultAnswer = "")
         {
-            var cb = new InputBox(title, question, intervalInMs, defaultAnswer)
+            var inputBox = new InputBox(title, question, intervalInMs, defaultAnswer)
             {
                 parent = parent
             };
             if (intervalInMs == Timeout.Infinite)
             {
-                cb.PinMessage();
+                inputBox.PinMessage();
             }
             else
             {
-                cb.UnpinMessage();
+                inputBox.UnpinMessage();
             }
 
-            if (Show(cb) == DialogResult.OK)
+            if (Show(inputBox) == DialogResult.OK)
             {
-                return cb.Answer;
+                return inputBox.Answer;
             };
 
             return null;
         }
 
-        private void Close_Tick(object sender, EventArgs e)
-        {
-            AcceptButton?.PerformClick();
-        }
-
         private void InputBox_Shown(object sender, EventArgs e)
         {
             rtbQuestion.Select(0, 0);
-            AcceptButton = btnOk;
-            CancelButton = btnCancel;
         }
     }
 }

@@ -158,8 +158,10 @@
             // 
             // InputBox
             // 
+            AcceptButton = btnOk; 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            CancelButton = btnCancel;
             ClientSize = new System.Drawing.Size(470, 123);
             Controls.Add(btnCancel);
             Controls.Add(btnOk);

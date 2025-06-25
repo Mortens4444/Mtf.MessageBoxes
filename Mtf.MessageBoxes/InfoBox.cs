@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -37,24 +36,7 @@ namespace Mtf.MessageBoxes
             }
         }
 
-        [DefaultValue("")]
-        public override sealed string Text
-        {
-            get { return base.Text; }
-            set { base.Text = value; }
-        }
-
-        private void BtnPin_Click(object sender, EventArgs e)
-        {
-            PinMessage();
-        }
-
-        private void BtnUnpin_Click(object sender, EventArgs e)
-        {
-            UnpinMessage();
-        }
-
-        void PinMessage()
+        protected override void PinMessage()
         {
             closeTimer.Stop();
             decrementSecondsLeftTimer.Stop();
@@ -64,7 +46,7 @@ namespace Mtf.MessageBoxes
             btnOk.Text = OK;
         }
 
-        private void UnpinMessage()
+        protected override void UnpinMessage()
         {
             btnPin.Visible = true;
             btnUnpin.Visible = false;
@@ -72,34 +54,20 @@ namespace Mtf.MessageBoxes
             closeTimer.Start();
             decrementSecondsLeftTimer.Start();
             secondsLeft = (int)(Math.Truncate((decimal)closeTimer.Interval / 1000));
-            ShowMessageOnOKButton();
+            ShowMessageOnDefaultButton();
         }
 
-        private void ShowMessageOnOKButton()
+        private void ShowMessageOnDefaultButton()
         {
-            var ok_secondsLeft = new StringBuilder(OK);
-            ok_secondsLeft.AppendFormat(" ({0})", secondsLeft);
-            btnOk.Text = ok_secondsLeft.ToString();
+            var okSecondsLeft = new StringBuilder(OK);
+            okSecondsLeft.AppendFormat($" ({secondsLeft})");
+            btnOk.Text = okSecondsLeft.ToString();
         }
 
         private void DecrementSecondsLeft_Tick(object sender, EventArgs e)
         {
             secondsLeft--;
-            ShowMessageOnOKButton();
-        }
-
-        private static DialogResult Show(InfoBox ib)
-        {
-            if (ib.parent != null)
-            {
-                ib.Left = ib.parent.Left + (ib.parent.Width - ib.Width) / 2;
-                ib.Top = ib.parent.Top + (ib.parent.Height - ib.Height) / 2;
-            }
-            else
-            {
-                ib.StartPosition = FormStartPosition.CenterScreen;
-            }
-            return ib.ShowDialog();
+            ShowMessageOnDefaultButton();
         }
 
         public static DialogResult Show(string title, string message, int intervalInMs)
@@ -119,20 +87,15 @@ namespace Mtf.MessageBoxes
 
         public static DialogResult Show(Form parent, string title, string message, int intervalInMs)
         {
-            var ib = new InfoBox(title, message, intervalInMs)
+            var infoBox = new InfoBox(title, message, intervalInMs)
             {
                 parent = parent
             };
             if (intervalInMs != Timeout.Infinite)
             {
-                ib.UnpinMessage();
+                infoBox.UnpinMessage();
             }
-            return Show(ib);
-        }
-
-        private void Close_Tick(object sender, EventArgs e)
-        {
-            Close();
+            return Show(infoBox);
         }
 
         private void InfoBox_Shown(object sender, EventArgs e)

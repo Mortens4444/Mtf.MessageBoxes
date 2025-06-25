@@ -33,8 +33,8 @@
 			rtbMessage = new System.Windows.Forms.RichTextBox();
 			btnUnpin = new System.Windows.Forms.Button();
 			btnPin = new System.Windows.Forms.Button();
-			btn_No = new System.Windows.Forms.Button();
-			btn_Yes = new System.Windows.Forms.Button();
+			btnNo = new System.Windows.Forms.Button();
+			btnYes = new System.Windows.Forms.Button();
 			pbConfirm = new System.Windows.Forms.PictureBox();
 			tooltip = new System.Windows.Forms.ToolTip(components);
 			closeTimer = new System.Windows.Forms.Timer(components);
@@ -97,27 +97,27 @@
 			// 
 			// btn_No
 			// 
-			btn_No.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			btn_No.DialogResult = System.Windows.Forms.DialogResult.No;
-			btn_No.Location = new System.Drawing.Point(237, 88);
-			btn_No.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-			btn_No.Name = "btn_No";
-			btn_No.Size = new System.Drawing.Size(88, 27);
-			btn_No.TabIndex = 2;
-			btn_No.Text = "No";
-			btn_No.UseVisualStyleBackColor = true;
+			btnNo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			btnNo.DialogResult = System.Windows.Forms.DialogResult.No;
+			btnNo.Location = new System.Drawing.Point(237, 88);
+			btnNo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			btnNo.Name = "btn_No";
+			btnNo.Size = new System.Drawing.Size(88, 27);
+			btnNo.TabIndex = 2;
+			btnNo.Text = "No";
+			btnNo.UseVisualStyleBackColor = true;
 			// 
 			// btn_Yes
 			// 
-			btn_Yes.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			btn_Yes.DialogResult = System.Windows.Forms.DialogResult.Yes;
-			btn_Yes.Location = new System.Drawing.Point(142, 88);
-			btn_Yes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-			btn_Yes.Name = "btn_Yes";
-			btn_Yes.Size = new System.Drawing.Size(88, 27);
-			btn_Yes.TabIndex = 1;
-			btn_Yes.Text = "Yes";
-			btn_Yes.UseVisualStyleBackColor = true;
+			btnYes.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			btnYes.DialogResult = System.Windows.Forms.DialogResult.Yes;
+			btnYes.Location = new System.Drawing.Point(142, 88);
+			btnYes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			btnYes.Name = "btn_Yes";
+			btnYes.Size = new System.Drawing.Size(88, 27);
+			btnYes.TabIndex = 1;
+			btnYes.Text = "Yes";
+			btnYes.UseVisualStyleBackColor = true;
 			// 
 			// pbConfirm
 			// 
@@ -143,8 +143,8 @@
 			AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			ClientSize = new System.Drawing.Size(470, 123);
-			Controls.Add(btn_No);
-			Controls.Add(btn_Yes);
+			Controls.Add(btnNo);
+			Controls.Add(btnYes);
 			Controls.Add(pbConfirm);
 			Controls.Add(p_Main);
 			FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
@@ -165,8 +165,8 @@
         private System.Windows.Forms.Panel p_Main;
 		private System.Windows.Forms.Button btnPin;
 		private System.Windows.Forms.Button btnUnpin;
-		private System.Windows.Forms.Button btn_No;
-		private System.Windows.Forms.Button btn_Yes;
+		private System.Windows.Forms.Button btnNo;
+		private System.Windows.Forms.Button btnYes;
 		private System.Windows.Forms.PictureBox pbConfirm;
 		private System.Windows.Forms.ToolTip tooltip;
 		private System.Windows.Forms.Timer closeTimer;

@@ -1,6 +1,5 @@
 ﻿using Mtf.MessageBoxes.Enums;
 using System;
-using System.ComponentModel;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -19,8 +18,8 @@ namespace Mtf.MessageBoxes
             try
             {
                 InitializeComponent();
-                btn_Yes.Text = Yes;
-                btn_No.Text = No;
+                btnYes.Text = Yes;
+                btnNo.Text = No;
                 Text = String.Concat(Application.ProductName, ": ", title);
                 rtbMessage.Text = message;
                 closeTimer.Enabled = false;
@@ -41,42 +40,25 @@ namespace Mtf.MessageBoxes
             }
         }
 
-        [DefaultValue("")]
-        public override sealed string Text
-        {
-            get { return base.Text; }
-            set { base.Text = value; }
-        }
-
         private void FocusAcceptButton()
         {
-            var button = defaultChoice ? btn_Yes : btn_No;
+            var button = defaultChoice ? btnYes : btnNo;
             button.Focus();
         }
 
-        private void BtnPin_Click(object sender, EventArgs e)
-        {
-            PinMessage();
-        }
-
-        private void BtnUnpin_Click(object sender, EventArgs e)
-        {
-            UnpinMessage();
-        }
-
-        private void PinMessage()
+        protected override void PinMessage()
         {
             closeTimer.Stop();
             decrementSecondsLeftTimer.Stop();
             btnPin.Visible = false;
             btnUnpin.Visible = showAutoCloseButtons;
             tooltip.SetToolTip(btnUnpin, EnableAutomaticMessageClosing);
-            btn_Yes.Text = Yes;
-            btn_No.Text = No;
+            btnYes.Text = Yes;
+            btnNo.Text = No;
             FocusAcceptButton();
         }
 
-        private void UnpinMessage()
+        protected override void UnpinMessage()
         {
             btnPin.Visible = true;
             btnUnpin.Visible = false;
@@ -91,8 +73,8 @@ namespace Mtf.MessageBoxes
         {
             var okSecondsLeft = new StringBuilder();
             okSecondsLeft.Append(defaultChoice ? Yes : No);
-            okSecondsLeft.AppendFormat(" ({0})", secondsLeft);
-            var button = defaultChoice ? btn_Yes : btn_No;
+            okSecondsLeft.AppendFormat($" ({secondsLeft})");
+            var button = defaultChoice ? btnYes : btnNo;
             button.Text = okSecondsLeft.ToString();
         }
 
@@ -100,21 +82,6 @@ namespace Mtf.MessageBoxes
         {
             secondsLeft--;
             ShowMessageOnDefaultButton();
-        }
-
-        private static DialogResult Show(ConfirmBox cb)
-        {
-            if (cb.parent != null)
-            {
-                cb.Left = cb.parent.Left + (cb.parent.Width - cb.Width) / 2;
-                cb.Top = cb.parent.Top + (cb.parent.Height - cb.Height) / 2;
-            }
-            else
-            {
-                cb.StartPosition = FormStartPosition.CenterScreen;
-            }
-
-            return cb.ShowDialog();
         }
 
         public static DialogResult Show(string title, string message, int intervalInMs = 10000, Decide defaultChoice = Decide.No)
@@ -134,32 +101,27 @@ namespace Mtf.MessageBoxes
 
         public static DialogResult Show(Form parent, string title, string message, int intervalInMs = 10000, Decide defaultChoice = Decide.No)
         {
-            var cb = new ConfirmBox(title, message, intervalInMs, defaultChoice)
+            var confirmBox = new ConfirmBox(title, message, intervalInMs, defaultChoice)
             {
                 parent = parent
             };
             if (intervalInMs == Timeout.Infinite)
             {
-                cb.PinMessage();
+                confirmBox.PinMessage();
             }
             else
             {
-                cb.UnpinMessage();
+                confirmBox.UnpinMessage();
             }
 
-            return Show(cb);
-        }
-
-        private void Close_Tick(object sender, EventArgs e)
-        {
-            AcceptButton?.PerformClick();
+            return Show(confirmBox);
         }
 
         private void ConfirmBox_Shown(object sender, EventArgs e)
         {
             rtbMessage.Select(0, 0);
-            AcceptButton = defaultChoice ? btn_Yes : btn_No;
-            CancelButton = btn_No;
+            AcceptButton = defaultChoice ? btnYes : btnNo;
+            CancelButton = btnNo;
             FocusAcceptButton();
         }
     }
