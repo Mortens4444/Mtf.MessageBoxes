@@ -14,6 +14,12 @@ namespace Mtf.MessageBoxes.Exceptions
         private int timeout;
         private ILogger<ExceptionHandler> logger;
         private HashSet<Type> userVisibleExceptions = new HashSet<Type> { typeof(UnauthorizedAccessException) };
+        private bool showDebugInfo = false;
+
+        public void ShowDebugInfo(bool showDebugInfo)
+        {
+            this.showDebugInfo = showDebugInfo;
+        }
 
         public void SetUserVisibleExceptions(HashSet<Type> userVisibleExceptions)
         {
@@ -50,15 +56,15 @@ namespace Mtf.MessageBoxes.Exceptions
         {
             var message = $"{args.RequestingAssembly?.FullName ?? Application.ProductName} cannot load assembly: {args.Name}";
             logger?.LogError(message);
-            ExceptionHandler.ShowMessageForDeveloper(message);
+            ShowMessageForDeveloper(message);
             return null;
         }
 
         private void ShowError(string message)
         {
             logger?.LogError(message);
-            ExceptionHandler.ShowMessageForDeveloper(message);
-            ExceptionHandler.ShowError(message, timeout);
+            ShowMessageForDeveloper(message);
+            ShowError(message, timeout);
         }
 
         public void SetLogger(ILogger<ExceptionHandler> logger)
@@ -86,7 +92,7 @@ namespace Mtf.MessageBoxes.Exceptions
             }
             catch (Exception ex)
             {
-                ExceptionHandler.ShowExceptionForDeveloper(ex);
+                ShowExceptionForDeveloper(ex);
             }
         }
 
@@ -128,7 +134,14 @@ namespace Mtf.MessageBoxes.Exceptions
         {
             if (!Debugger.IsAttached || userVisibleExceptions.Contains(exception.GetType()))
             {
-                ErrorBox.Show("Unhandled exception", exception.GetInnermostException().Message, timeout);
+                if (showDebugInfo)
+                {
+                    DebugErrorBox.Show(exception, timeout);
+                }
+                else
+                {
+                    ErrorBox.Show("Unhandled exception", exception.GetInnermostException().Message, timeout);
+                }
             }
             else
             {
@@ -136,11 +149,11 @@ namespace Mtf.MessageBoxes.Exceptions
             }
         }
 
-        private static void ShowError(string message, int timeout)
+        private void ShowError(string message, int timeout)
         {
-            if (Debugger.IsAttached)
+            if (Debugger.IsAttached || showDebugInfo)
             {
-                DebugErrorBox.Show("Debugger error", message, timeout);
+                DebugErrorBox.Show("Debugger error", $"{message}\n\nStack trace:\n{Environment.StackTrace}", timeout);
             }
             else
             {
