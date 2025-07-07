@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.ExceptionServices;
@@ -12,6 +13,12 @@ namespace Mtf.MessageBoxes.Exceptions
     {
         private int timeout;
         private ILogger<ExceptionHandler> logger;
+        private HashSet<Type> userVisibleExceptions = new HashSet<Type> { typeof(UnauthorizedAccessException) };
+
+        public void SetUserVisibleExceptions(HashSet<Type> userVisibleExceptions)
+        {
+            this.userVisibleExceptions = userVisibleExceptions;
+        }
 
         public void CatchUnhandledExceptions(bool showFirstChanceExceptions = false, int timeout = Timeout.Infinite)
         {
@@ -43,15 +50,15 @@ namespace Mtf.MessageBoxes.Exceptions
         {
             var message = $"{args.RequestingAssembly?.FullName ?? Application.ProductName} cannot load assembly: {args.Name}";
             logger?.LogError(message);
-            ShowMessageForDeveloper(message);
+            ExceptionHandler.ShowMessageForDeveloper(message);
             return null;
         }
 
         private void ShowError(string message)
         {
             logger?.LogError(message);
-            ShowMessageForDeveloper(message);
-            ShowError(message, timeout);
+            ExceptionHandler.ShowMessageForDeveloper(message);
+            ExceptionHandler.ShowError(message, timeout);
         }
 
         public void SetLogger(ILogger<ExceptionHandler> logger)
@@ -79,7 +86,7 @@ namespace Mtf.MessageBoxes.Exceptions
             }
             catch (Exception ex)
             {
-                ShowExceptionForDeveloper(ex);
+                ExceptionHandler.ShowExceptionForDeveloper(ex);
             }
         }
 
@@ -101,17 +108,17 @@ namespace Mtf.MessageBoxes.Exceptions
             }
             catch (Exception ex)
             {
-                ShowExceptionForDeveloper(ex);
+                ExceptionHandler.ShowExceptionForDeveloper(ex);
             }
         }
 
-        private void ShowMessageForDeveloper(string message)
+        private static void ShowMessageForDeveloper(string message)
         {
             Debug.WriteLine(message);
             Console.Error.WriteLine(message);
         }
 
-        private void ShowExceptionForDeveloper(Exception exception)
+        private static void ShowExceptionForDeveloper(Exception exception)
         {
             Debug.WriteLine(exception);
             Console.Error.WriteLine(exception);
@@ -119,17 +126,17 @@ namespace Mtf.MessageBoxes.Exceptions
 
         private void ShowException(Exception exception, int timeout)
         {
-            if (Debugger.IsAttached)
-            {
-                DebugErrorBox.Show(exception, timeout);
-            }
-            else
+            if (!Debugger.IsAttached || userVisibleExceptions.Contains(exception.GetType()))
             {
                 ErrorBox.Show("Unhandled exception", exception.GetInnermostException().Message, timeout);
             }
+            else
+            {
+                DebugErrorBox.Show(exception, timeout);
+            }
         }
 
-        private void ShowError(string message, int timeout)
+        private static void ShowError(string message, int timeout)
         {
             if (Debugger.IsAttached)
             {
